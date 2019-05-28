@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Button, Heading, Grommet, ResponsiveContext } from "grommet";
-import { Notification } from "grommet-icons";
+
 import "./App.css";
 import AppBar from "./components/AppBar";
-import SideBar from "./components/SideBar";
+import SideBarContainer from "./components/SideBar";
 
 const theme = {
   global: {
@@ -36,28 +36,12 @@ class App extends React.Component {
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
-              <AppBar>
-                <Heading level="3" margin="none">
-                  {size} Title
-                </Heading>
-                <Button
-                  icon={<Notification />}
-                  onClick={() => {
-                    this.setState({
-                      showSidebar: !this.state.showSidebar
-                    });
-                  }}
-                />
-              </AppBar>
+              <AppBar />
               <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
                 <Box flex align="center" justify="center">
                   app body
                 </Box>
-                <SideBar
-                  showSidebar={this.state.showSidebar}
-                  size={size}
-                  onClick={() => this.hideSideBar()}
-                />
+                <SideBarContainer size={size} />
               </Box>
             </Box>
           )}

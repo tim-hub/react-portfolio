@@ -1,5 +1,19 @@
 import React from "react";
-import { Box } from "grommet";
+import { Box, Heading, Button } from "grommet";
+import { Notification } from "grommet-icons";
+import { TOGGLE_SIDEBAR } from "../redux/constants/action-types";
+import { connect } from "react-redux";
+
+const mapStateToProps = state => {
+  return {
+    title: state.title
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    onClick: () => dispatch({ type: TOGGLE_SIDEBAR })
+  };
+};
 
 /**
  * An app header bar.
@@ -16,7 +30,15 @@ const AppBar = props => (
     elevation="medium"
     style={{ zIndex: "1" }}
     {...props}
-  />
+  >
+    <Heading level="3" margin="none">
+      {props.title} Hi
+    </Heading>
+    <Button icon={<Notification />} onClick={props.onClick} />
+  </Box>
 );
 
-export default AppBar;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppBar);

@@ -1,8 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Box, Collapsible, Button, Layer } from "grommet";
 import { FormClose } from "grommet-icons";
 import SideContent from "./SideContent";
+import { HIDE_SIDEBAR } from "../redux/constants/action-types";
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    showSidebar: state.showSidebar,
+    size: ownProps.size
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => dispatch({ type: HIDE_SIDEBAR })
+  };
+};
 /**
  * A responsive sidebar.
  * @param {*} props - props from parent component. {size, showSideBar}
@@ -48,4 +61,7 @@ const SideBar = props => {
   );
 };
 
-export default SideBar;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideBar);

@@ -1,31 +1,34 @@
-import { HIDE_SIDEBAR, TOGGLE_SIDEBAR } from "../constants/action-types";
-import { SHOW_SIDEBAR } from "../constants/action-types";
+import {
+  HIDE_SIDEBAR,
+  TOGGLE_SIDEBAR,
+  SHOW_SIDEBAR
+} from "../constants/action-types";
 
 const initialState = {
-  showSidebar: false,
+  showBar: true,
   title: "Portfolio"
 };
 
-function rootReducer(state = initialState, action) {
-  if (action.type === HIDE_SIDEBAR) {
-    console.log("hide it");
-    return Object.assign({}, state, {
-      showSidebar: false
-    });
-  }
-  if (action.type === SHOW_SIDEBAR) {
-    return Object.assign({}, state, {
-      showSidebar: true
-    });
-  }
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case HIDE_SIDEBAR:
+      return Object.assign({}, state, {
+        showBar: false
+      });
 
-  if (action.type === TOGGLE_SIDEBAR) {
-    return Object.assign({}, state, {
-      showSidebar: !state.showSidebar
-    });
-  }
+    case SHOW_SIDEBAR:
+      return Object.assign({}, state, {
+        showBar: true
+      });
 
-  return state;
-}
+    case TOGGLE_SIDEBAR:
+      console.log("hide it");
+      return Object.assign({}, state, {
+        showBar: !state.showBar
+      });
+    default:
+      return state;
+  }
+};
 
 export default rootReducer;

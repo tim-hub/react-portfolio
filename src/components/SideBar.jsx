@@ -7,11 +7,11 @@ import { HIDE_SIDEBAR } from "../redux/constants/action-types";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    showSidebar: state.showSidebar,
+    showSidebar: state.showBar,
     size: ownProps.size
   };
 };
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     onClick: () => dispatch({ type: HIDE_SIDEBAR })
   };

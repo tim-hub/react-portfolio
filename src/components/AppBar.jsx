@@ -1,18 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Box, Heading, Button } from "grommet";
 import { Notification } from "grommet-icons";
+import { toggleSidebar, hideSidebar } from "../redux/actions/index";
 import { TOGGLE_SIDEBAR } from "../redux/constants/action-types";
-import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   return {
     title: state.title
   };
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    onClick: () => dispatch({ type: TOGGLE_SIDEBAR })
-  };
+const mapDispatchToProps = {
+  onClick: () => {
+    return {
+      type: TOGGLE_SIDEBAR
+    };
+  } // equal onClick: () => dispatch({type: TOGGLE_SIDEBAR})
 };
 
 /**
@@ -38,7 +41,9 @@ const AppBar = props => (
   </Box>
 );
 
-export default connect(
+const AppBatContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AppBar);
+
+export default AppBatContainer;

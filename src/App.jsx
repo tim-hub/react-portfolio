@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Button, Heading, Grommet, ResponsiveContext } from "grommet";
-
+import { Box, Grommet, ResponsiveContext } from "grommet";
 import "./App.css";
-import AppBar from "./components/AppBar";
-import SideBarContainer from "./components/SideBar";
+import AppBarContainer from "./components/AppBar";
+import SideBar from "./components/SideBar";
 
 const theme = {
   global: {
@@ -19,29 +18,18 @@ const theme = {
 };
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showSidebar: false
-    };
-    this.hideSideBar = this.hideSideBar.bind(this);
-  }
-  hideSideBar() {
-    console.log("hide side bar");
-    this.setState({ showSidebar: !this.state.showSidebar });
-  }
   render() {
     return (
       <Grommet theme={theme} full>
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
-              <AppBar />
+              <AppBarContainer />
               <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
                 <Box flex align="center" justify="center">
                   app body
                 </Box>
-                <SideBarContainer size={size} />
+                <SideBar size={size} />
               </Box>
             </Box>
           )}

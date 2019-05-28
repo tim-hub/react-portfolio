@@ -16,8 +16,9 @@ export const showSidebar = () => {
   };
 };
 
-export const toggleSidebar = () => {
+export const toggleSidebar = showing => {
   return {
-    type: TOGGLE_SIDEBAR
+    type: TOGGLE_SIDEBAR,
+    showing: showing
   };
 };

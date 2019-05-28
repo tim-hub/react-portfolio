@@ -5,7 +5,7 @@ import {
 } from "../constants/action-types";
 
 const initialState = {
-  showBar: true,
+  showBar: false,
   title: "Portfolio"
 };
 
@@ -22,9 +22,8 @@ const rootReducer = (state = initialState, action) => {
       });
 
     case TOGGLE_SIDEBAR:
-      console.log("hide it");
       return Object.assign({}, state, {
-        showBar: !state.showBar
+        showBar: !action.showing
       });
     default:
       return state;

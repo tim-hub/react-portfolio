@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import { Box, Collapsible, Button, Layer } from "grommet";
 import { FormClose } from "grommet-icons";
 import SideContent from "./SideContent";
+import Chat from "./Chat";
 import { HIDE_SIDEBAR } from "../redux/constants/action-types";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    showSidebar: state.showBar,
+    showSidebar: state.root.showBar,
     size: ownProps.size
   };
 };
@@ -22,7 +23,7 @@ const mapDispatchToProps = dispatch => {
  */
 const SideBar = props => {
   const renderContent = () => {
-    return <SideContent>Hi there a sidebar</SideContent>;
+    return <Chat />;
   };
 
   const getCloseButton = clickingFun => (
@@ -41,7 +42,7 @@ const SideBar = props => {
     <Collapsible direction="horizontal" open={props.showSidebar}>
       {props.showSidebar &&
       (props.size === "small" || props.size === "xsmall") ? (
-        <Layer>
+        <Layer flex>
           {getCloseButton(props.onClick)}
           {renderContent()}
         </Layer>
@@ -52,7 +53,7 @@ const SideBar = props => {
           background="light-2"
           elevation="small"
           align="center"
-          justify="center"
+          justify="start"
         >
           {renderContent()}
         </Box>

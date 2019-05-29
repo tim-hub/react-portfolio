@@ -1,5 +1,6 @@
 import React from "react";
+import { Box } from "grommet";
 
-const Home = props => <div {...props}>a home</div>;
+const Home = props => <Box {...props}>a home</Box>;
 
 export default Home;

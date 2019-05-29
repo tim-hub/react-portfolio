@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Box, Heading, Button } from "grommet";
+import { NavLink } from "react-router-dom";
+import { Box, Heading, Button, Stack, Text } from "grommet";
 import { Notification } from "grommet-icons";
 import { toggleSidebar } from "../redux/actions/index";
 
 const mapStateToProps = state => {
   return {
-    title: state.title,
-    showSidebar: state.showBar
+    title: state.root.title,
+    showSidebar: state.root.showBar
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -29,20 +30,25 @@ const AppBar = props => (
     align="center"
     justify="between"
     background="brand"
-    pad={{ left: "medium", right: "small", vertical: "small" }}
+    pad={{ left: "medium", right: "left", vertical: "small" }}
     elevation="medium"
     style={{ zIndex: "1" }}
     {...props}
   >
     <Heading level="3" margin="none">
-      {props.title + props.showSidebar} Hi
+      <NavLink to={"/"}>{props.title + " " + props.showSidebar} Hi</NavLink>
     </Heading>
-    <Button
-      icon={<Notification />}
-      onClick={() => {
-        props.toggleSidebar(props.showSidebar);
-      }}
-    />
+    <Stack anchor="top-right">
+      {/* <Box background="red" pad={{ horizontal: "xsmall" }} round>
+        <Text>8</Text>
+      </Box> */}
+      <Button
+        icon={<Notification />}
+        onClick={() => {
+          props.toggleSidebar(props.showSidebar);
+        }}
+      />
+    </Stack>
   </Box>
 );
 

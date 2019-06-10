@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Box, Heading, Button, Grid, InfiniteScroll, Text } from "grommet";
 import { Notification } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
+import BubbleLoading from "./utils/Loading.js";
 
 const mapStatusToProps = (status, ownProps) => {
   return {
@@ -11,7 +12,7 @@ const mapStatusToProps = (status, ownProps) => {
 };
 
 const data = [
-  { index: 0, from: 0, content: "hi there," },
+  { index: 0, from: 0, content: "hi there ," },
   { index: 1, from: 1, content: "hi," },
   { index: 2, from: 1, content: "what is your name," },
   {
@@ -22,6 +23,14 @@ const data = [
     },
     content:
       "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
+  },
+  {
+    index: 4,
+    from: 0,
+    references: {
+      work: "/"
+    },
+    content: "..."
   }
 ];
 
@@ -91,6 +100,7 @@ const Chat = props => (
     </Box>
 
     <Box fill overflow="auto">
+      <BubbleLoading type="bubbles" />
       <InfiniteScroll items={data}>
         {item => <ConversationBox item={item} />}
       </InfiniteScroll>

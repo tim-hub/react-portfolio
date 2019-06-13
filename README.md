@@ -1,6 +1,7 @@
 # About
+[![CircleCI](https://circleci.com/gh/tim-hub/react-portfolio.svg?style=svg)](https://circleci.com/gh/tim-hub/react-portfolio)
 
-This is a boilerplate of grommet, react and enzyme, this is basic theme (from grommet official tutorial), header and sidebar.
+This is a react project as a personal portfolio.
 
 # How to
 

@@ -9,7 +9,7 @@ import { HIDE_SIDEBAR } from "../redux/constants/action-types";
 const mapStateToProps = (state, ownProps) => {
   return {
     showSidebar: state.root.showBar,
-    size: ownProps.size
+    size: state.root.size
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -42,7 +42,7 @@ const SideBar = props => {
     <Collapsible direction="horizontal" open={props.showSidebar}>
       {props.showSidebar &&
       (props.size === "small" || props.size === "xsmall") ? (
-        <Layer flex>
+        <Layer flex modal={false} responsive={true}>
           {getCloseButton(props.onClick)}
           {renderContent()}
         </Layer>

@@ -1,7 +1,9 @@
-import { UPDATE_CHATTING } from "../constants/action-types";
+import { UPDATE_CHATTING, ANSWER, ASK } from "../constants/action-types";
 
 const initialState = {
-  status: "chatting"
+  status: "chatting",
+  questions: [],
+  answers: []
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -9,6 +11,14 @@ const chatReducer = (state = initialState, action) => {
     case UPDATE_CHATTING:
       return Object.assign({}, state, {
         status: action.status
+      });
+    case ASK:
+      return Object.assign({}, state, {
+        questions: action.questions
+      });
+    case ANSWER:
+      return Object.assign({}, state, {
+        answers: action.answers
       });
     default:
       return state;

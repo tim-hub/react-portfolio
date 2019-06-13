@@ -24,9 +24,9 @@ export const toggleSidebar = showing => {
   };
 };
 
-export const updateDeviceSize = size =>{
+export const updateDeviceSize = size => {
   return {
     type: DEVICE_SIZE,
     size: size
-  }
-}
+  };
+};

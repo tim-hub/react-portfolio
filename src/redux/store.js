@@ -8,6 +8,7 @@ const reducers = combineReducers({
   chat: chatReducer
 });
 const composeEnhancers =
+  // set the redux dev tool box
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         trace: true,

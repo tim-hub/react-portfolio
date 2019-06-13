@@ -1,12 +1,14 @@
 import {
   HIDE_SIDEBAR,
   TOGGLE_SIDEBAR,
-  SHOW_SIDEBAR
+  SHOW_SIDEBAR,
+  DEVICE_SIZE
 } from "../constants/action-types";
 
 const initialState = {
   showBar: false,
-  title: "Portfolio"
+  title: "Portfolio",
+  size: "medium"
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -24,6 +26,10 @@ const rootReducer = (state = initialState, action) => {
     case TOGGLE_SIDEBAR:
       return Object.assign({}, state, {
         showBar: !action.showing
+      });
+    case DEVICE_SIZE:
+      return Object.assign({}, state, {
+        size: action.size
       });
     default:
       return state;

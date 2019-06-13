@@ -1,7 +1,8 @@
 import {
   HIDE_SIDEBAR,
   SHOW_SIDEBAR,
-  TOGGLE_SIDEBAR
+  TOGGLE_SIDEBAR,
+  DEVICE_SIZE
 } from "../constants/action-types";
 
 export const hideSidebar = () => {
@@ -22,3 +23,10 @@ export const toggleSidebar = showing => {
     showing: showing
   };
 };
+
+export const updateDeviceSize = size =>{
+  return {
+    type: DEVICE_SIZE,
+    size: size
+  }
+}

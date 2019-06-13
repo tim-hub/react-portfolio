@@ -1,7 +1,6 @@
-import path from "path";
-const data = require(path.join(__dirname, "./data.json"));
+const data = require("./data.json");
 
-const answer = question => {
+export const answerInChat = question => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       try {
@@ -17,12 +16,10 @@ const answer = question => {
   });
 };
 
-async function asyncAnswer(question) {
-  const result = await answer(question).catch(e => {
+export async function asyncAnswer(question) {
+  const result = await answerInChat(question).catch(e => {
     console.log(e);
   });
   console.log(result);
   return result;
 }
-
-export default asyncAnswer;

@@ -7,15 +7,15 @@ export const updateChattingStatus = status => {
   };
 };
 
-export const ask = question => {
+export const ask = questions => {
   return {
     type: QUESTION,
-    question: question
+    questions: questions
   };
 };
-export const answer = answer => {
+export const answer = answers => {
   return {
     type: ANSWER,
-    question: answer
+    answers: answers
   };
 };

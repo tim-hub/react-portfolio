@@ -4,10 +4,25 @@ import { Box, Heading, Button, Grid, InfiniteScroll, Text } from "grommet";
 import { Notification } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
 import BubbleLoading from "./utils/Loading.js";
+import { ask, answer } from "../redux/actions/chat";
+import { asyncAnswer, answerInChat } from "../chattingengine/chat";
 
 const mapStatusToProps = (status, ownProps) => {
   return {
-    status: status.chat.status
+    status: status.chat.status,
+    questions: status.chat.questions,
+    answers: status.chat.answers
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    ask: question => {
+      dispatch(ask(question));
+    },
+    answer: result => {
+      dispatch(answer(result));
+    }
   };
 };
 
@@ -71,61 +86,81 @@ const ConversationBox = props => {
   );
 };
 
-const Chat = props => (
-  <Box
-    background="accent-3"
-    justify="start"
-    margin={{ top: "medium", bottom: "medium", left: "large", right: "large" }}
-    align="start"
-    alignContent="start"
-    alignSelf="center"
-    fill="horizontal"
-    height="700px"
-    gap="small"
-    round
-    elevation="medium"
-  >
+const Chat = props => {
+  const askAQuestion = question => {
+    props.ask(props.questions.concat(question));
+    answerInChat(question).then(result => {
+      props.answer(props.answers.concat(result));
+    });
+  };
+  return (
     <Box
-      direction="row"
-      align="center"
-      alignContent="center"
-      justify="center"
-      background="light-2"
-      pad={{ left: "medium", right: "left", vertical: "small" }}
-      elevation="medium"
-      round={{ corner: "top" }}
+      background="accent-3"
+      justify="start"
+      margin={{
+        top: "medium",
+        bottom: "medium",
+        left: "large",
+        right: "large"
+      }}
+      align="start"
+      alignContent="start"
+      alignSelf="center"
       fill="horizontal"
-    >
-      <Text size="xsmall">{props.status}</Text>
-    </Box>
-
-    <Box fill overflow="auto">
-      <BubbleLoading type="bubbles" />
-      <InfiniteScroll items={data}>
-        {item => <ConversationBox item={item} />}
-      </InfiniteScroll>
-    </Box>
-
-    <Box
-      direction="row"
-      align="end"
-      alignContent="end"
-      background="light-4"
-      pad={{ left: "medium", right: "left", vertical: "small" }}
+      height="700px"
+      gap="small"
+      round
       elevation="medium"
-      round={{ corner: "bottom" }}
-      fill="horizontal"
     >
-      <Text size="large">Talking</Text>
-    </Box>
+      <Box
+        direction="row"
+        align="center"
+        alignContent="center"
+        justify="center"
+        background="light-2"
+        pad={{ left: "medium", right: "left", vertical: "small" }}
+        elevation="medium"
+        round={{ corner: "top" }}
+        fill="horizontal"
+      >
+        <Text size="xsmall">{props.status}</Text>
+      </Box>
 
-    {/* <Box>
+      <Box fill overflow="auto">
+        <BubbleLoading key={"asd"} type="bubbles" />
+        <InfiniteScroll items={data}>
+          {item => <ConversationBox item={item} />}
+        </InfiniteScroll>
+      </Box>
+
+      <Box
+        direction="row"
+        align="end"
+        alignContent="end"
+        background="light-4"
+        pad={{ left: "medium", right: "left", vertical: "small" }}
+        elevation="medium"
+        round={{ corner: "bottom" }}
+        fill="horizontal"
+      >
+        {/*<Text size="large">Talking</Text>*/}
+        <Button
+          onClick={() => {
+            askAQuestion("asd");
+          }}
+        >
+          Send
+        </Button>
+      </Box>
+
+      {/* <Box>
 
     </Box> */}
-  </Box>
-);
+    </Box>
+  );
+};
 
 export default connect(
   mapStatusToProps,
-  undefined
+  mapDispatchToProps
 )(Chat);

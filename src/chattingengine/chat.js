@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 const data = require(path.join(__dirname, "./data.json"));
 
 const answer = question => {
@@ -17,7 +17,7 @@ const answer = question => {
   });
 };
 
-async function asynAnswer(question) {
+async function asyncAnswer(question) {
   const result = await answer(question).catch(e => {
     console.log(e);
   });
@@ -25,6 +25,4 @@ async function asynAnswer(question) {
   return result;
 }
 
-asynAnswer("123");
-
-// export default asynAnswer;
+export default asyncAnswer;

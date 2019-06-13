@@ -2,7 +2,7 @@ import React from "react";
 import { configure, shallow, mount } from "enzyme";
 import { ResponsiveContext, Box } from "grommet";
 import { expect } from "chai";
-import App from "../App";
+import { App } from "../App"; // import the app component not the default container
 
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });

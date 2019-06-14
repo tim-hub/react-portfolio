@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
+  Icons,
   Box,
   Heading,
   Button,
@@ -10,7 +11,7 @@ import {
   InfiniteScroll,
   Text
 } from "grommet";
-import { Notification } from "grommet-icons";
+import { Notification, Edit, Next } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
 import BubbleLoading from "./utils/Loading.js";
 import { ask, answer } from "../redux/actions/chat";
@@ -20,7 +21,8 @@ const mapStatusToProps = (status, ownProps) => {
   return {
     status: status.chat.status,
     questions: status.chat.questions,
-    answers: status.chat.answers
+    answers: status.chat.answers,
+    size: status.root.size
   };
 };
 
@@ -146,31 +148,36 @@ const Chat = props => {
         align="end"
         alignContent="start"
         background="light-4"
-        pad={{ left: "medium", right: "left", vertical: "small" }}
+        pad={{
+          left:
+            props.size === "small" || props.size === "xsmall"
+              ? "medium"
+              : "small",
+          right:
+            props.size === "small" || props.size === "xsmall"
+              ? "medium"
+              : "small",
+          top:
+            props.size === "small" || props.size === "xsmall"
+              ? "medium"
+              : "small",
+          bottom: "xsmall"
+        }}
         elevation="medium"
         round={{ size: "medium", corner: "bottom" }}
         fill="horizontal"
       >
-        <TextInput />
-        {/*<Select*/}
-        {/*  options={["Who are you?", "medium", "large"]}*/}
-        {/*  value={"small"}*/}
-        {/*  onChange={({ option }) => console.log(option)}*/}
-        {/*/>*/}
+        <TextInput primary />
         <Button
           type={"button"}
+          icon={<Next size={"small"} />}
           primary
+          margin={{ left: "small" }}
           onClick={() => {
             askAQuestion("asd");
           }}
-        >
-          Send
-        </Button>
+        />
       </Box>
-
-      {/* <Box>
-
-    </Box> */}
     </Box>
   );
 };

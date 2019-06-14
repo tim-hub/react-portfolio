@@ -1,6 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Box, Heading, Button, Grid, InfiniteScroll, Text } from "grommet";
+import {
+  Box,
+  Heading,
+  Button,
+  Select,
+  TextInput,
+  TextArea,
+  InfiniteScroll,
+  Text
+} from "grommet";
 import { Notification } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
 import BubbleLoading from "./utils/Loading.js";
@@ -73,8 +82,8 @@ const ConversationBox = props => {
       justify={fromBot ? "start" : "end"}
       margin={{
         top: "xsmall",
-        left: "xsmall",
-        right: "xsmall"
+        left: "",
+        right: ""
       }}
       pad="small"
       round={fromBot ? { corner: "right" } : { corner: "left" }}
@@ -119,7 +128,7 @@ const Chat = props => {
         background="light-2"
         pad={{ left: "medium", right: "left", vertical: "small" }}
         elevation="medium"
-        round={{ corner: "top" }}
+        round={{ size: "medium", corner: "top" }}
         fill="horizontal"
       >
         <Text size="xsmall">{props.status}</Text>
@@ -135,15 +144,22 @@ const Chat = props => {
       <Box
         direction="row"
         align="end"
-        alignContent="end"
+        alignContent="start"
         background="light-4"
         pad={{ left: "medium", right: "left", vertical: "small" }}
         elevation="medium"
-        round={{ corner: "bottom" }}
+        round={{ size: "medium", corner: "bottom" }}
         fill="horizontal"
       >
-        {/*<Text size="large">Talking</Text>*/}
+        <TextInput />
+        {/*<Select*/}
+        {/*  options={["Who are you?", "medium", "large"]}*/}
+        {/*  value={"small"}*/}
+        {/*  onChange={({ option }) => console.log(option)}*/}
+        {/*/>*/}
         <Button
+          type={"button"}
+          primary
           onClick={() => {
             askAQuestion("asd");
           }}

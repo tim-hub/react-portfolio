@@ -168,6 +168,7 @@ const Chat = props => {
         fill="horizontal"
       >
         <TextInput primary />
+
         <Button
           type={"button"}
           icon={<Next size={"small"} />}

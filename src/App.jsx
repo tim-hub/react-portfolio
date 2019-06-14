@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const App = props => (
+export const App = props => (
   <BrowserRouter>
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>

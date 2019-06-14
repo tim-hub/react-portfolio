@@ -71,7 +71,6 @@ const ConversationBox = props => {
       background={`dark-${props.item.from + 1}`}
       flex={false}
       justify={fromBot ? "start" : "end"}
-      key={props.item.index + props.item.content}
       margin={{
         top: "xsmall",
         left: "xsmall",
@@ -127,9 +126,9 @@ const Chat = props => {
       </Box>
 
       <Box fill overflow="auto">
-        <BubbleLoading key={"asd"} type="bubbles" />
         <InfiniteScroll items={data}>
-          {item => <ConversationBox item={item} />}
+          {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
+          {(item, index) => <ConversationBox item={item} key={index} />}
         </InfiniteScroll>
       </Box>
 

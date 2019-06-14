@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
+  Icons,
   Box,
   Heading,
   Button,
@@ -10,7 +11,7 @@ import {
   InfiniteScroll,
   Text
 } from "grommet";
-import { Notification } from "grommet-icons";
+import { Notification, Edit, Next } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
 import BubbleLoading from "./utils/Loading.js";
 import { ask, answer } from "../redux/actions/chat";
@@ -146,12 +147,17 @@ const Chat = props => {
         align="end"
         alignContent="start"
         background="light-4"
-        pad={{ left: "medium", right: "left", vertical: "small" }}
+        pad={{
+          left: "medium",
+          right: "medium",
+          top: "medium",
+          bottom: "small"
+        }}
         elevation="medium"
         round={{ size: "medium", corner: "bottom" }}
         fill="horizontal"
       >
-        <TextInput />
+        <TextInput primary />
         {/*<Select*/}
         {/*  options={["Who are you?", "medium", "large"]}*/}
         {/*  value={"small"}*/}
@@ -159,18 +165,13 @@ const Chat = props => {
         {/*/>*/}
         <Button
           type={"button"}
+          icon={<Next size={"small"} />}
           primary
           onClick={() => {
             askAQuestion("asd");
           }}
-        >
-          Send
-        </Button>
+        ></Button>
       </Box>
-
-      {/* <Box>
-
-    </Box> */}
     </Box>
   );
 };

@@ -96,92 +96,103 @@ const ConversationBox = props => {
   );
 };
 
-const Chat = props => {
-  const askAQuestion = question => {
-    props.ask(props.questions.concat(question));
-    answerInChat(question).then(result => {
-      props.answer(props.answers.concat(result));
-    });
-  };
-  return (
-    <Box
-      background="accent-3"
-      justify="start"
-      margin={{
-        top: "medium",
-        bottom: "medium",
-        left: "large",
-        right: "large"
-      }}
-      align="start"
-      alignContent="start"
-      alignSelf="center"
-      fill="horizontal"
-      height="700px"
-      gap="small"
-      round
-      elevation="medium"
-    >
-      <Box
-        direction="row"
-        align="center"
-        alignContent="center"
-        justify="center"
-        background="light-2"
-        pad={{ left: "medium", right: "left", vertical: "small" }}
-        elevation="medium"
-        round={{ size: "medium", corner: "top" }}
-        fill="horizontal"
-      >
-        <Text size="xsmall">{props.status}</Text>
-      </Box>
+class Chat extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { question: "" };
+  }
 
-      <Box fill overflow="auto">
-        <InfiniteScroll items={data}>
-          {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
-          {(item, index) => <ConversationBox item={item} key={index} />}
-        </InfiniteScroll>
-      </Box>
-
+  render() {
+    const askAQuestion = question => {
+      this.props.ask(this.props.questions.concat(question));
+      answerInChat(question).then(result => {
+        this.props.answer(this.props.answers.concat(result));
+      });
+    };
+    return (
       <Box
-        direction="row"
-        align="end"
-        alignContent="start"
-        background="light-4"
-        pad={{
-          left:
-            props.size === "small" || props.size === "xsmall"
-              ? "medium"
-              : "small",
-          right:
-            props.size === "small" || props.size === "xsmall"
-              ? "medium"
-              : "small",
-          top:
-            props.size === "small" || props.size === "xsmall"
-              ? "medium"
-              : "small",
-          bottom: "xsmall"
+        background="accent-3"
+        justify="start"
+        margin={{
+          top: "medium",
+          bottom: "medium",
+          left: "large",
+          right: "large"
         }}
-        elevation="medium"
-        round={{ size: "medium", corner: "bottom" }}
+        align="start"
+        alignContent="start"
+        alignSelf="center"
         fill="horizontal"
+        height="700px"
+        gap="small"
+        round
+        elevation="medium"
       >
-        <TextInput primary />
+        <Box
+          direction="row"
+          align="center"
+          alignContent="center"
+          justify="center"
+          background="light-2"
+          pad={{ left: "medium", right: "left", vertical: "small" }}
+          elevation="medium"
+          round={{ size: "medium", corner: "top" }}
+          fill="horizontal"
+        >
+          <Text size="xsmall">{this.props.status}</Text>
+        </Box>
 
-        <Button
-          type={"button"}
-          icon={<Next size={"small"} />}
-          primary
-          margin={{ left: "small" }}
-          onClick={() => {
-            askAQuestion("asd");
+        <Box fill overflow="auto">
+          <InfiniteScroll items={data}>
+            {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
+            {(item, index) => <ConversationBox item={item} key={index} />}
+          </InfiniteScroll>
+        </Box>
+
+        <Box
+          direction="row"
+          align="end"
+          alignContent="start"
+          background="light-4"
+          pad={{
+            left:
+              this.props.size === "small" || this.props.size === "xsmall"
+                ? "medium"
+                : "small",
+            right:
+              this.props.size === "small" || this.props.size === "xsmall"
+                ? "medium"
+                : "small",
+            top:
+              this.props.size === "small" || this.props.size === "xsmall"
+                ? "medium"
+                : "small",
+            bottom: "xsmall"
           }}
-        />
+          elevation="medium"
+          round={{ size: "medium", corner: "bottom" }}
+          fill="horizontal"
+        >
+          <TextInput
+            primary
+            value={this.state.question}
+            onChange={event => this.setState({ question: event.target.value })}
+          />
+
+          <Button
+            type={"button"}
+            icon={<Next size={"small"} />}
+            primary
+            margin={{ left: "small" }}
+            onClick={() => {
+              askAQuestion(this.state.question);
+            }}
+          />
+        </Box>
       </Box>
-    </Box>
-  );
-};
+    );
+  }
+}
 
 export default connect(
   mapStatusToProps,

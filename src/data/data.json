@@ -1,4 +1,10 @@
 {
+  "init": {
+    "statuses": ["chatting", "thinking"],
+    "status": 0,
+    "questions": [{ "index": 0, "from": 0, "content": "hi there ," }],
+    "answers": []
+  },
   "greetings": [
     { "index": 0, "from": 0, "content": "hi there ," },
     { "index": 1, "from": 1, "content": "hi," },
@@ -9,8 +15,7 @@
       "references": {
         "work": "/"
       },
-      "content":
-      "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
+      "content": "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
     }
   ],
   "others": [
@@ -25,5 +30,4 @@
       }
     ]
   ]
-
 }

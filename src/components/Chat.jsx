@@ -17,49 +17,6 @@ import BubbleLoading from "./utils/Loading.js";
 import { ask, answer } from "../redux/actions/chat";
 import { asyncAnswer, answerInChat } from "../chattingengine/chat";
 
-const mapStatusToProps = (status, ownProps) => {
-  return {
-    status: status.chat.status,
-    questions: status.chat.questions,
-    answers: status.chat.answers,
-    size: status.root.size
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    ask: question => {
-      dispatch(ask(question));
-    },
-    answer: result => {
-      dispatch(answer(result));
-    }
-  };
-};
-
-const data = [
-  { index: 0, from: 0, content: "hi there ," },
-  { index: 1, from: 1, content: "hi," },
-  { index: 2, from: 1, content: "what is your name," },
-  {
-    index: 3,
-    from: 0,
-    references: {
-      work: "/"
-    },
-    content:
-      "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
-  },
-  {
-    index: 4,
-    from: 0,
-    references: {
-      work: "/"
-    },
-    content: "..."
-  }
-];
-
 const ConversationBox = props => {
   const fromBot = props.item.from === 0;
 
@@ -100,6 +57,7 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = { question: "" };
+    console.log(this.props.questions);
   }
 
   render() {
@@ -139,12 +97,13 @@ class Chat extends React.Component {
           round={{ size: "medium", corner: "top" }}
           fill="horizontal"
         >
-          <Text size="xsmall">{this.props.status}</Text>
+          <Text size="xsmall">{this.props.statuses[this.props.status]}</Text>
         </Box>
 
         <Box fill overflow="auto">
-          <InfiniteScroll items={data}>
+          <InfiniteScroll items={this.props.questions}>
             {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
+
             {(item, index) => <ConversationBox item={item} key={index} />}
           </InfiniteScroll>
         </Box>
@@ -193,6 +152,27 @@ class Chat extends React.Component {
     );
   }
 }
+
+const mapStatusToProps = (status, ownProps) => {
+  return {
+    status: status.chat.status,
+    statuses: status.chat.statuses,
+    questions: status.chat.questions,
+    answers: status.chat.answers,
+    size: status.root.size
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    ask: question => {
+      dispatch(ask(question));
+    },
+    answer: result => {
+      dispatch(answer(result));
+    }
+  };
+};
 
 export default connect(
   mapStatusToProps,

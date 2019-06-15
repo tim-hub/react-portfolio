@@ -1,4 +1,4 @@
-const data = require("./data.json");
+const data = require("../data/data.json");
 
 export const answerInChat = question => {
   return new Promise((resolve, reject) => {

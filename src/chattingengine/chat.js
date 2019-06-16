@@ -5,14 +5,14 @@ export const answerInChat = question => {
     setTimeout(() => {
       try {
         let reply =
-          data.greetings[Math.floor(Math.random() * data.greetings.length) + 1];
+          data.greetings[Math.floor(Math.random() * data.greetings.length)];
         console.log("resolve" + question);
         resolve(reply["content"]);
       } catch (e) {
         console.log("reject" + question);
         reject(e);
       }
-    }, Math.floor(Math.random() * 100) + 1);
+    }, Math.floor(Math.random() * 5000) + 1);
   });
 };
 

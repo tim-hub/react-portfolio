@@ -11,11 +11,25 @@ const chatReducer = (state = initialState, action) => {
       });
     case QUESTION:
       return Object.assign({}, state, {
-        questions: action.questions
+        questions: [
+          ...state.questions,
+          {
+            id: state.questions.length,
+            from: action.from,
+            content: action.question
+          }
+        ]
       });
     case ANSWER:
       return Object.assign({}, state, {
-        answers: action.answers
+        questions: [
+          ...state.questions,
+          {
+            id: state.questions.length,
+            from: action.from,
+            content: action.answer
+          }
+        ]
       });
     default:
       return state;

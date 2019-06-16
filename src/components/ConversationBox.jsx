@@ -8,7 +8,7 @@ class ConversationBox extends React.PureComponent {
     super(props);
     this.state = {
       fromBot: props.item.from === 0,
-      waiting: props.item.from === 0 && !props.remote
+      waiting: props.item.waiting //props.item.from === 0 && !props.remote
     };
   }
 
@@ -54,19 +54,19 @@ class ConversationBox extends React.PureComponent {
     );
   }
 
-  componentDidMount() {
-    if (this.state.waiting) {
-      this.timer = setTimeout(() => {
-        this.setState({ waiting: false });
-      }, getRandomLoading(3000));
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.state.waiting) {
-      clearTimeout(this.timer);
-    }
-  }
+  // componentDidMount() {
+  //   if (this.state.waiting) {
+  //     this.timer = setTimeout(() => {
+  //       this.setState({ waiting: false });
+  //     }, getRandomLoading(3000));
+  //   }
+  // }
+  //
+  // componentWillUnmount() {
+  //   if (this.state.waiting) {
+  //     clearTimeout(this.timer);
+  //   }
+  // }
 }
 
 export default ConversationBox;

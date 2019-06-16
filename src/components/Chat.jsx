@@ -23,15 +23,27 @@ import ConversationBox from "./ConversationBox";
 class Chat extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { question: "" };
-    console.log(this.props.questions);
+    this.state = { question: "", loading: false };
   }
 
   render() {
+    const tmpWaitingItem = [
+      {
+        id: this.props.questions.length,
+        from: 0,
+        waiting: true
+      }
+    ];
     const askAQuestion = question => {
-      this.props.ask(this.props.questions.concat(question));
+      this.setState({
+        loading: true
+      });
+      this.props.ask(question);
       answerInChat(question).then(result => {
-        this.props.answer(this.props.answers.concat(result));
+        this.setState({
+          loading: false
+        });
+        this.props.answer(result);
       });
     };
     return (
@@ -68,9 +80,14 @@ class Chat extends React.Component {
         </Box>
 
         <Box fill overflow="auto">
-          <InfiniteScroll items={this.props.questions}>
+          <InfiniteScroll
+            items={
+              this.state.loading
+                ? this.props.questions.concat(tmpWaitingItem)
+                : this.props.questions
+            }
+          >
             {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
-
             {(item, index) => (
               <ConversationBox
                 item={item}
@@ -131,7 +148,6 @@ const mapStatusToProps = (status, ownProps) => {
     status: status.chat.status,
     statuses: status.chat.statuses,
     questions: status.chat.questions,
-    answers: status.chat.answers,
     remote: status.chat.remote,
     size: status.root.size
   };
@@ -143,6 +159,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(ask(question));
     },
     answer: result => {
+      console.log(result);
       dispatch(answer(result));
     }
   };

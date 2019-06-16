@@ -8,3 +8,4 @@ export const DEVICE_SIZE = "DEVICE_SIZE";
 export const UPDATE_CHATTING = "UPDATE_CHATTING";
 export const ANSWER = "ANSWER";
 export const QUESTION = "QUESTION";
+export const ANSWERING = "ANSWERING";

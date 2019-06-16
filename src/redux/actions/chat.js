@@ -1,4 +1,9 @@
-import { UPDATE_CHATTING, QUESTION, ANSWER } from "../constants/action-types";
+import {
+  UPDATE_CHATTING,
+  QUESTION,
+  ANSWER,
+  ANSWERING
+} from "../constants/action-types";
 
 export const updateChattingStatus = status => {
   return {
@@ -7,15 +12,23 @@ export const updateChattingStatus = status => {
   };
 };
 
-export const ask = questions => {
+export const ask = (question, fromWhom = 1) => {
   return {
     type: QUESTION,
-    questions: questions
+    question: question,
+    from: fromWhom
   };
 };
-export const answer = answers => {
+export const answer = (answer, fromWhom = 0) => {
   return {
     type: ANSWER,
-    answers: answers
+    answer: answer,
+    from: fromWhom
+  };
+};
+
+export const answering = () => {
+  return {
+    type: ANSWERING
   };
 };

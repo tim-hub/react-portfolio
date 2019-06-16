@@ -42,7 +42,7 @@ const SideBar = props => {
     <Collapsible direction="horizontal" open={props.showSidebar}>
       {props.showSidebar &&
       (props.size === "small" || props.size === "xsmall") ? (
-        <Layer flex modal={false} responsive={true}>
+        <Layer flex>
           {getCloseButton(props.onClick)}
           {renderContent()}
         </Layer>
@@ -50,7 +50,6 @@ const SideBar = props => {
         <Box
           flex
           width="medium"
-          background="light-2"
           elevation="small"
           align="center"
           justify="start"

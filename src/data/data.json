@@ -1,0 +1,40 @@
+{
+  "init": {
+    "chat": {
+      "statuses": ["chatting", "thinking"],
+      "status": 0,
+      "questions": [
+        { "index": 0, "from": 0, "content": "hi there ," },
+        { "index": 1, "from": 1, "content": "hi, who are you," },
+        { "index": 2, "from": 0, "content": "I am TJ," }
+      ],
+      "answers": [],
+      "remote": false
+    }
+  },
+  "greetings": [
+    { "index": 0, "from": 0, "content": "hi there ," },
+    { "index": 1, "from": 1, "content": "hi," },
+    { "index": 2, "from": 1, "content": "what is your name," },
+    {
+      "index": 3,
+      "from": 0,
+      "references": {
+        "work": "/"
+      },
+      "content": "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
+    }
+  ],
+  "others": [
+    [
+      {
+        "index": 4,
+        "from": 0,
+        "references": {
+          "work": "/"
+        },
+        "content": "..."
+      }
+    ]
+  ]
+}

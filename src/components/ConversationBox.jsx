@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "grommet/es6";
+import { Box, Text } from "grommet";
 import LoadingComponent from "./utils/Loading";
 
 const ConversationBox = props => {

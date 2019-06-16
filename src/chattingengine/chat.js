@@ -1,3 +1,4 @@
+import { getRandomLoading } from "../utils/random";
 const data = require("../data/data.json");
 
 export const answerInChat = question => {
@@ -12,7 +13,7 @@ export const answerInChat = question => {
         console.log("reject" + question);
         reject(e);
       }
-    }, Math.floor(Math.random() * 5000) + 1);
+    }, getRandomLoading(3800));
   });
 };
 

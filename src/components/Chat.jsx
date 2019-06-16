@@ -15,9 +15,8 @@ import {
 import { Notification, Edit, Next } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
 
-import { ask, answer } from "../redux/actions/chat";
+import { ask, answer, answering } from "../redux/actions/chat";
 import { asyncAnswer, answerInChat } from "../chattingengine/chat";
-import LoadingComponent from "./utils/Loading.jsx";
 import ConversationBox from "./ConversationBox";
 
 class Chat extends React.Component {
@@ -27,22 +26,10 @@ class Chat extends React.Component {
   }
 
   render() {
-    const tmpWaitingItem = [
-      {
-        id: this.props.questions.length,
-        from: 0,
-        waiting: true
-      }
-    ];
     const askAQuestion = question => {
-      this.setState({
-        loading: true
-      });
       this.props.ask(question);
+      this.props.answering();
       answerInChat(question).then(result => {
-        this.setState({
-          loading: false
-        });
         this.props.answer(result);
       });
     };
@@ -80,21 +67,8 @@ class Chat extends React.Component {
         </Box>
 
         <Box fill overflow="auto">
-          <InfiniteScroll
-            items={
-              this.state.loading
-                ? this.props.questions.concat(tmpWaitingItem)
-                : this.props.questions
-            }
-          >
-            {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
-            {(item, index) => (
-              <ConversationBox
-                item={item}
-                key={index}
-                remote={this.props.remote}
-              />
-            )}
+          <InfiniteScroll items={this.props.questions}>
+            {(item, index) => <ConversationBox item={item} key={index} />}
           </InfiniteScroll>
         </Box>
 
@@ -161,6 +135,10 @@ const mapDispatchToProps = dispatch => {
     answer: result => {
       console.log(result);
       dispatch(answer(result));
+    },
+    answering: () => {
+      console.log("answering");
+      dispatch(answering());
     }
   };
 };

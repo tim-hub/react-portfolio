@@ -1,4 +1,9 @@
-import { UPDATE_CHATTING, ANSWER, QUESTION } from "../constants/action-types";
+import {
+  UPDATE_CHATTING,
+  ANSWER,
+  QUESTION,
+  ANSWERING
+} from "../constants/action-types";
 const data = require("../../data/data.json"); // use local data as initial state
 
 const initialState = data["init"]["chat"];
@@ -23,11 +28,23 @@ const chatReducer = (state = initialState, action) => {
     case ANSWER:
       return Object.assign({}, state, {
         questions: [
-          ...state.questions,
+          ...state.questions.slice(0, state.questions.length - 1),
           {
             id: state.questions.length,
             from: action.from,
             content: action.answer
+          }
+        ]
+      });
+    case ANSWERING:
+      return Object.assign({}, state, {
+        questions: [
+          ...state.questions,
+          {
+            id: state.questions.length,
+            from: 0,
+            waiting: true,
+            content: ""
           }
         ]
       });

@@ -2,7 +2,7 @@
   "name": "a-responsive-react-app-on-grommet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://tim.bai.uno/react-portfolio",
+  "homepage": "https://tim-hub.github.io/react-portfolio/",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "grommet": "^2.7.1",

@@ -51,8 +51,8 @@ const SideBar = props => {
           flex
           width="medium"
           elevation="small"
-          // align="center"
-          // justify="start"
+          align="center"
+          justify="start"
         >
           {renderContent()}
         </Box>

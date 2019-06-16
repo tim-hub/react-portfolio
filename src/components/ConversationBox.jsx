@@ -15,33 +15,31 @@ const ConversationBox = props => {
     }
   };
 
-  return (
-    <Box>
-      {props.item.waiting ? (
-        <LoadingComponent type={"bubbles"} />
-      ) : (
-        <Box
-          align={fromBot ? "start" : "end"}
-          alignContent={fromBot ? "start" : "end"}
-          alignSelf={fromBot ? "start" : "end"}
-          animation={fromBot ? "fadeIn" : "slideLeft"}
-          background={`dark-${props.item.from + 1}`}
-          flex={false}
-          justify={fromBot ? "start" : "end"}
-          margin={{
-            top: "xsmall",
-            left: "",
-            right: ""
-          }}
-          pad="small"
-          round={fromBot ? { corner: "right" } : { corner: "left" }}
-          width={getWidth(props.item.content)}
-        >
-          <Text size="small">{props.item.content}</Text>
-        </Box>
-      )}
-    </Box>
-  );
+  if (props.item.waiting) {
+    return <LoadingComponent type={"bubbles"} />;
+  } else {
+    return (
+      <Box
+        align={fromBot ? "start" : "end"}
+        alignContent={fromBot ? "start" : "end"}
+        alignSelf={fromBot ? "start" : "end"}
+        animation={fromBot ? "fadeIn" : "slideLeft"}
+        background={`dark-${props.item.from + 1}`}
+        flex={false}
+        justify={fromBot ? "start" : "end"}
+        margin={{
+          top: "xsmall",
+          left: "",
+          right: ""
+        }}
+        pad="small"
+        round={fromBot ? { corner: "right" } : { corner: "left" }}
+        width={getWidth(props.item.content)}
+      >
+        <Text size="small">{props.item.content}</Text>
+      </Box>
+    );
+  }
 };
 
 export default ConversationBox;

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import {
   Icons,
   Box,
@@ -13,45 +14,11 @@ import {
 } from "grommet";
 import { Notification, Edit, Next } from "grommet-icons";
 import { updateChattingStatus } from "../redux/actions/chat";
-import BubbleLoading from "./utils/Loading.js";
+
 import { ask, answer } from "../redux/actions/chat";
 import { asyncAnswer, answerInChat } from "../chattingengine/chat";
-
-const ConversationBox = props => {
-  const fromBot = props.item.from === 0;
-
-  const getWidth = content => {
-    if (content.length >= 128) {
-      return "medium";
-    } else if (content.length < 16) {
-      return "xsmall";
-    } else {
-      return "small";
-    }
-  };
-
-  return (
-    <Box
-      align={fromBot ? "start" : "end"}
-      alignContent={fromBot ? "start" : "end"}
-      alignSelf={fromBot ? "start" : "end"}
-      animation={fromBot ? "fadeIn" : "slideLeft"}
-      background={`dark-${props.item.from + 1}`}
-      flex={false}
-      justify={fromBot ? "start" : "end"}
-      margin={{
-        top: "xsmall",
-        left: "",
-        right: ""
-      }}
-      pad="small"
-      round={fromBot ? { corner: "right" } : { corner: "left" }}
-      width={getWidth(props.item.content)}
-    >
-      <Text size="small">{props.item.content}</Text>
-    </Box>
-  );
-};
+import LoadingComponent from "./utils/Loading.jsx";
+import ConversationBox from "./ConversationBox";
 
 class Chat extends React.Component {
   constructor(props) {
@@ -104,7 +71,13 @@ class Chat extends React.Component {
           <InfiniteScroll items={this.props.questions}>
             {/*<BubbleLoading key={"asd"} type="bubbles" />*/}
 
-            {(item, index) => <ConversationBox item={item} key={index} />}
+            {(item, index) => (
+              <ConversationBox
+                item={item}
+                key={index}
+                remote={this.props.remote}
+              />
+            )}
           </InfiniteScroll>
         </Box>
 
@@ -159,6 +132,7 @@ const mapStatusToProps = (status, ownProps) => {
     statuses: status.chat.statuses,
     questions: status.chat.questions,
     answers: status.chat.answers,
+    remote: status.chat.remote,
     size: status.root.size
   };
 };

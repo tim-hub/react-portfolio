@@ -1,7 +1,7 @@
 import { UPDATE_CHATTING, ANSWER, QUESTION } from "../constants/action-types";
 const data = require("../../data/data.json"); // use local data as initial state
 
-const initialState = data["init"];
+const initialState = data["init"]["chat"];
 
 const chatReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -4,7 +4,7 @@ import { Box, Button, TextInput, InfiniteScroll, Text } from "grommet";
 import { Next } from "grommet-icons";
 
 import { ask, answer, answering, setToTyping } from "../redux/actions/chat";
-import { answerInChat } from "../chattingengine/chat";
+import { answerInChat, nlpBot } from "../chattingengine/chat";
 import ConversationBox from "./ConversationBox";
 
 class Chat extends React.Component {
@@ -17,8 +17,11 @@ class Chat extends React.Component {
     const askAQuestion = question => {
       this.props.ask(question);
       this.props.answering();
-      answerInChat(question).then(result => {
-        this.props.answer(result);
+      // answerInChat(question).then(result => {
+      //   this.props.answer(result);
+      // });
+      nlpBot(question).then(result => {
+        this.props.answer(result["srcAnswer"]);
       });
     };
     return (

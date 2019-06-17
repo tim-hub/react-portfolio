@@ -10,4 +10,5 @@ This is a boilerplate of grommet, react agit cnd enzyme, this is basic theme (fr
 
 ## Techs
 - nlp.js
+    - [nlp manager](https://github.com/axa-group/nlp.js/blob/master/docs/nlp-manager.md)
 - gundb

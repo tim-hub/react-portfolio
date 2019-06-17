@@ -23,8 +23,8 @@ jobs: # a collection of steps
           command: yarn test
   deploy:
     working_directory: ~/src # directory where steps will run
-      docker: # run the steps with Docker
-          - image: circleci/node:12.4.0-stretch-browsers # ...with this image as the primary container; this is where all `steps` will run
+    docker: # run the steps with Docker
+      - image: circleci/node:12.4.0-stretch-browsers # ...with this image as the primary container; this is where all `steps` will run
     steps:
       - checkout
       - restore_cache:

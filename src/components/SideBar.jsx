@@ -2,11 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Box, Collapsible, Button, Layer } from "grommet";
 import { FormClose } from "grommet-icons";
-import SideContent from "./SideContent";
 import Chat from "./Chat";
 import { HIDE_SIDEBAR } from "../redux/constants/action-types";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     showSidebar: state.root.showBar,
     size: state.root.size

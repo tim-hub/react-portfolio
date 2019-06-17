@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Redirect, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Box, Grommet, ResponsiveContext } from "grommet";
 import "./App.css";

@@ -1,22 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import {
-  Icons,
-  Box,
-  Heading,
-  Button,
-  Select,
-  TextInput,
-  TextArea,
-  InfiniteScroll,
-  Text
-} from "grommet";
-import { Notification, Edit, Next } from "grommet-icons";
-import { updateChattingStatus } from "../redux/actions/chat";
+import { Box, Button, TextInput, InfiniteScroll, Text } from "grommet";
+import { Next } from "grommet-icons";
 
 import { ask, answer, answering } from "../redux/actions/chat";
-import { asyncAnswer, answerInChat } from "../chattingengine/chat";
+import { answerInChat } from "../chattingengine/chat";
 import ConversationBox from "./ConversationBox";
 
 class Chat extends React.Component {
@@ -117,7 +105,7 @@ class Chat extends React.Component {
   }
 }
 
-const mapStatusToProps = (status, ownProps) => {
+const mapStatusToProps = status => {
   return {
     status: status.chat.status,
     statuses: status.chat.statuses,

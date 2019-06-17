@@ -38,8 +38,8 @@ class Chat extends React.Component {
         background="accent-3"
         justify="start"
         margin={{
-          top: "medium",
-          bottom: "medium",
+          top: "xsmall",
+          // bottom: "medium",
           left: "large",
           right: "large"
         }}
@@ -47,7 +47,7 @@ class Chat extends React.Component {
         alignContent="start"
         alignSelf="center"
         fill="horizontal"
-        height="700px"
+        height="750px"
         gap="small"
         round
         elevation="medium"

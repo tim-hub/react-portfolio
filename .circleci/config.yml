@@ -30,6 +30,11 @@ jobs: # a collection of steps
             git config --global user.email $EMAIL
             git config --global user.name "circleci"
       - run:
+          name: Set Git
+          command: |
+            git config --global user.email "builds@circleci.com"
+            git config --global user.name "circle"
+      - run:
           name: Deploy to Github Page
           command: |
             yarn deploy

@@ -21,3 +21,37 @@ jobs: # a collection of steps
       - run: # run tests
           name: test
           command: yarn test
+  deploy:
+    working_directory: ~/src # directory where steps will run
+      docker: # run the steps with Docker
+          - image: circleci/node:12.4.0-stretch-browsers # ...with this image as the primary container; this is where all `steps` will run
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - add_ssh_keys:
+          fingerprints:
+            - "5f:37:04:95:14:32:68:1e:ef:85:41:ee:1e:07:92:10"
+      - run:
+          name: Deploy to Github Page
+          command: |
+            yarn deploy
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build

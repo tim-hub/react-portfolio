@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { Box, Grommet, ResponsiveContext } from "grommet";
 import "./App.css";
-import AppBarContainer from "./components/AppBar";
-import SideBar from "./components/SideBar";
+import AppBarContainer from "./components/layout/AppBar";
+import SideBar from "./components/layout/SideBar";
 import Home from "./components/Home";
 import { updateDeviceSize } from "./redux/actions/index";
 

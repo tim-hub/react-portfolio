@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Box, Heading, Button, Stack } from "grommet";
 import { Notification } from "grommet-icons";
-import { toggleSidebar } from "../redux/actions/index";
+import { toggleSidebar } from "../../redux/actions";
 
 const mapStateToProps = state => {
   return {

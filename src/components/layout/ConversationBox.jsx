@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "grommet";
-import LoadingComponent from "./utils/Loading";
+import LoadingComponent from "../utils/Loading";
 
 const ConversationBox = props => {
   const fromBot = props.item.from === 0;

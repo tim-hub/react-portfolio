@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { Box, Button, TextInput, InfiniteScroll, Text } from "grommet";
 import { Next } from "grommet-icons";
 
-import { ask, answer, answering, setToTyping } from "../redux/actions/chat";
-import { answerInChat, nlpBot } from "../chattingengine/chat";
+import { ask, answer, answering, setToTyping } from "../../redux/actions/chat";
+import { answerInChat, nlpBot } from "../../chattingengine/chat";
 import ConversationBox from "./ConversationBox";
 
 class Chat extends React.Component {

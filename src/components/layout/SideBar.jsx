@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Box, Collapsible, Button, Layer } from "grommet";
 import { FormClose } from "grommet-icons";
 import Chat from "./Chat";
-import { HIDE_SIDEBAR } from "../redux/constants/action-types";
+import { HIDE_SIDEBAR } from "../../redux/constants/action-types";
 
 const mapStateToProps = state => {
   return {

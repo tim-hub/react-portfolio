@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { Box, Grommet, ResponsiveContext } from "grommet";
 import "./App.css";
 import AppBarContainer from "./components/layout/AppBar";
 import SideBar from "./components/layout/SideBar";
 import Home from "./components/Home";
+import Ai from "./components/Ai";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
@@ -41,8 +42,9 @@ export const App = props => (
               <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
                 <Box flex align="center" justify="center">
                   <Switch>
-                    {/* <Redirect exact path="/" to="/" /> */}
-                    <Route path="/" component={Home} />
+                    {/*<Redirect exact path="/" to="/" />*/}
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/Ai" component={Ai} />
                   </Switch>
                 </Box>
                 <SideBar />

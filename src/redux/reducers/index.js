@@ -6,8 +6,8 @@ import {
 } from "../constants/action-types";
 
 const initialState = {
-  showBar: true,
-  title: "Portfolio",
+  showBar: false,
+  title: "Tim's Portfolio",
   size: "medium"
 };
 

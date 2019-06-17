@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Box, Heading, Button, Stack, Text } from "grommet";
+import { Box, Heading, Button, Stack } from "grommet";
 import { Notification } from "grommet-icons";
 import { toggleSidebar } from "../redux/actions/index";
 

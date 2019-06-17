@@ -1,5 +1,5 @@
 import { getRandomLoading } from "../utils/random";
-const data = require("../data/data.json");
+const data = require("../data/chattingdata.json");
 
 export const answerInChat = question => {
   return new Promise((resolve, reject) => {

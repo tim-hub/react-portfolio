@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Box, Button, TextInput, InfiniteScroll, Text } from "grommet";
 import { Next } from "grommet-icons";
 
-import { ask, answer, answering } from "../redux/actions/chat";
+import { ask, answer, answering, setToTyping } from "../redux/actions/chat";
 import { answerInChat } from "../chattingengine/chat";
 import ConversationBox from "./ConversationBox";
 
@@ -87,18 +87,30 @@ class Chat extends React.Component {
           <TextInput
             primary
             value={this.state.question}
-            onChange={event => this.setState({ question: event.target.value })}
+            onChange={event => {
+              this.setState({ question: event.target.value });
+              this.props.typing();
+            }}
+            onKeyDown={event => {
+              if (event.key === "Enter" && this.props.status !== 1) {
+                askAQuestion(this.state.question);
+              }
+            }}
           />
 
           <Button
-            type={"button"}
+            disabled={this.props.status === 1}
             icon={<Next size={"small"} />}
             primary
+            type={"button"}
             margin={{ left: "small" }}
             onClick={() => {
               askAQuestion(this.state.question);
             }}
-          />
+            reverse={false}
+          >
+            ""
+          </Button>
         </Box>
       </Box>
     );
@@ -121,12 +133,13 @@ const mapDispatchToProps = dispatch => {
       dispatch(ask(question));
     },
     answer: result => {
-      console.log(result);
       dispatch(answer(result));
     },
     answering: () => {
-      console.log("answering");
       dispatch(answering());
+    },
+    typing: () => {
+      dispatch(setToTyping());
     }
   };
 };

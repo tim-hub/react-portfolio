@@ -4,7 +4,7 @@ import {
   QUESTION,
   ANSWERING
 } from "../constants/action-types";
-const data = require("../../data/data.json"); // use local data as initial state
+const data = require("../../data/chattingdata.json"); // use local data as initial state
 
 const initialState = data["init"]["chat"];
 
@@ -34,7 +34,8 @@ const chatReducer = (state = initialState, action) => {
             from: action.from,
             content: action.answer
           }
-        ]
+        ],
+        status: 0
       });
     case ANSWERING:
       return Object.assign({}, state, {
@@ -46,7 +47,8 @@ const chatReducer = (state = initialState, action) => {
             waiting: true,
             content: ""
           }
-        ]
+        ],
+        status: 1
       });
     default:
       return state;

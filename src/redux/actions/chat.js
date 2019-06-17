@@ -12,6 +12,13 @@ export const updateChattingStatus = status => {
   };
 };
 
+export const setToTyping = () => {
+  return {
+    type: UPDATE_CHATTING,
+    status: 2
+  };
+};
+
 export const ask = (question, fromWhom = 1) => {
   return {
     type: QUESTION,

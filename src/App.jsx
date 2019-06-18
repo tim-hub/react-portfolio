@@ -7,6 +7,7 @@ import AppBarContainer from "./components/layout/AppBar";
 import SideBar from "./components/layout/SideBar";
 import Home from "./components/Home";
 import Ai from "./components/Ai";
+import Chat from "./components/layout/Chat";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
@@ -39,17 +40,19 @@ export const App = props => (
           props.updateDeviceSize(size);
           return (
             <Box fill>
-              <AppBarContainer />
-              <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
-                <Box flex align="center" justify="center">
-                  <Switch>
-                    {/*<Redirect exact path="/" to="/" />*/}
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/Ai" component={Ai} />
-                  </Switch>
-                </Box>
-                <SideBar />
+              {/*<AppBarContainer />*/}
+
+              <Box
+                flex
+                align="center"
+                alignContent={"center"}
+                alignSelf={"center"}
+                width="medium"
+                justify="start"
+              >
+                <Chat />
               </Box>
+              {/*<SideBar />*/}
             </Box>
           );
         }}

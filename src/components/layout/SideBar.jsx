@@ -47,6 +47,7 @@ const SideBar = props => {
         </Layer>
       ) : (
         <Box
+          background={"white"}
           flex
           width="medium"
           elevation="small"

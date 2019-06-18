@@ -35,7 +35,7 @@ const AppBar = props => (
     style={{ zIndex: "1" }}
     {...props}
   >
-    <Box direction={"row-responsive"} gap={"small"} align={"baseline"}>
+    <Box direction={"row"} gap={"small"} align={"baseline"}>
       <Heading level="3" margin="none">
         <NavLink to={"/"} className="App-tab" activeClassName="App-tab-active">
           {props.title}

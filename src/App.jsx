@@ -35,6 +35,7 @@ export const App = props => (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => {
+          console.log(size);
           props.updateDeviceSize(size);
           return (
             <Box fill>

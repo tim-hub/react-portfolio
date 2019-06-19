@@ -1,13 +1,11 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Box, Grommet, ResponsiveContext, WorldMap, Grid } from "grommet";
+import { Box, Grommet, ResponsiveContext, Grid } from "grommet";
 import "./App.css";
-import AppBarContainer from "./components/layout/AppBar";
-import SideBar from "./components/layout/SideBar";
-import Home from "./components/Home";
-import Ai from "./components/Ai";
+
 import Chat from "./components/layout/Chat";
+import Routers from "./components/utils/Routers";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
@@ -56,7 +54,13 @@ export const App = props => (
               >
                 <Box gridArea="c1" background="" />
 
-                <Box gridArea="c3" background={{ color: "", opacity: true }} />
+                <Box
+                  background={{ color: "", opacity: true }}
+                  gridArea="c3"
+                  justify="center"
+                >
+                  <Routers />
+                </Box>
                 <Box
                   flex
                   align="center"
@@ -66,7 +70,7 @@ export const App = props => (
                   background={{}}
                   gridArea="c2"
                   width="medium"
-                  justify="between"
+                  justify="center"
                 >
                   <Chat
                     background={{ color: "chat-background", opacity: true }}

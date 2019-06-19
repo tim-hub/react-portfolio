@@ -15,6 +15,7 @@ const ConversationBox = props => {
         alignSelf={fromBot ? "start" : "end"}
         animation={fromBot ? "fadeIn" : "slideLeft"}
         background={fromBot ? { color: "dark-1" } : { color: "neutral-3" }}
+        elevation="small"
         flex={false}
         justify={fromBot ? "start" : "end"}
         margin={{

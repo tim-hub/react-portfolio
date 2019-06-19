@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Box, Grommet, ResponsiveContext, Grid } from "grommet";
+import { Box, Grommet, ResponsiveContext, Grid, Text } from "grommet";
 import "./App.css";
 
 import Chat from "./components/layout/Chat";
@@ -38,45 +38,73 @@ export const App = props => (
           console.log(size);
           props.updateDeviceSize(size);
           return (
-            <Box fill background={{ color: "accent-3", opacity: true }}>
+            <Box
+              fill
+              background={{ color: "accent-3", opacity: true }}
+              direction={"row"}
+            >
               {/*<AppBarContainer />*/}
-
-              <Grid
-                fill
-                areas={[
-                  { name: "c1", start: [0, 0], end: [0, 0] },
-                  { name: "c2", start: [1, 0], end: [1, 0] },
-                  { name: "c3", start: [2, 0], end: [2, 0] }
-                ]}
-                columns={["flex", "medium", "flex"]}
-                rows={["flex"]}
-                gap="small"
+              {/*<Grid*/}
+              {/*  fill*/}
+              {/*  areas={[*/}
+              {/*    { name: "c1", start: [0, 0], end: [0, 0] },*/}
+              {/*    { name: "c2", start: [1, 0], end: [1, 0] },*/}
+              {/*    { name: "c3", start: [2, 0], end: [2, 0] },*/}
+              {/*    { name: "c4", start: [3, 0], end: [3, 0] },*/}
+              {/*    { name: "c5", start: [4, 0], end: [4, 0] }*/}
+              {/*  ]}*/}
+              {/*  columns={["flex", "xsmall", "medium", "xsmall", "flex"]}*/}
+              {/*  rows={["flex"]}*/}
+              {/*  gap="small"*/}
+              {/*>*/}
+              {/*  */}
+              {/*</Grid>*/}
+              <Box
+                flex
+                direction={"column"}
+                gap={"small"}
+                width={"small"}
+                align="center"
+                alignContent={"center"}
+                alignSelf={"center"}
               >
-                <Box gridArea="c1" background="" />
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+              </Box>
 
-                <Box
-                  background={{ color: "", opacity: true }}
-                  gridArea="c3"
-                  justify="center"
-                >
-                  <Routers />
-                </Box>
-                <Box
-                  flex
-                  align="center"
-                  alignContent={"center"}
-                  alignSelf={"center"}
-                  animation={"zoomIn"}
-                  background={{}}
-                  gridArea="c2"
-                  width="medium"
-                  justify="center"
-                >
-                  <Chat
-                    background={{ color: "chat-background", opacity: true }}
-                  />
-                </Box>
-              </Grid>
+              <Box
+                align="center"
+                alignContent={"center"}
+                alignSelf={"center"}
+                animation={"zoomIn"}
+                background={{}}
+                height={"auto"}
+                width="medium"
+                justify="center"
+              >
+                <Chat
+                  background={{ color: "chat-background", opacity: true }}
+                />
+              </Box>
+
+              <Box
+                flex
+                direction={"column"}
+                gap={"small"}
+                width={"small"}
+                align="center"
+                alignContent={"center"}
+                alignSelf={"center"}
+              >
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+                <Text>hi</Text>
+              </Box>
             </Box>
           );
         }}

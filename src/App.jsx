@@ -48,7 +48,7 @@ export const App = props => (
                 alignContent={"center"}
                 alignSelf={"center"}
                 width="medium"
-                justify="start"
+                justify="center"
               >
                 <Chat />
               </Box>

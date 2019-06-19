@@ -26,7 +26,7 @@ class Chat extends React.Component {
     };
     return (
       <Box
-        background="accent-3"
+        background={this.props.background}
         justify="start"
         margin={{
           top: "xsmall",
@@ -48,7 +48,7 @@ class Chat extends React.Component {
           align="center"
           alignContent="center"
           justify="center"
-          background="light-2"
+          background="light-1"
           pad={{ left: "medium", right: "left", vertical: "small" }}
           elevation="medium"
           round={{ size: "medium", corner: "top" }}
@@ -67,7 +67,7 @@ class Chat extends React.Component {
           direction="row"
           align="end"
           alignContent="start"
-          background="light-4"
+          background="light-2"
           pad={{
             left:
               this.props.size === "small" || this.props.size === "xsmall"
@@ -120,13 +120,14 @@ class Chat extends React.Component {
   }
 }
 
-const mapStatusToProps = status => {
+const mapStatusToProps = (status, ownProps) => {
   return {
     status: status.chat.status,
     statuses: status.chat.statuses,
     questions: status.chat.questions,
     remote: status.chat.remote,
-    size: status.root.size
+    size: status.root.size,
+    background: ownProps.background
   };
 };
 

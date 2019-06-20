@@ -46,7 +46,7 @@ class Chat extends React.Component {
           justify="center"
         >
           <Box
-            background={{ color: "accent-3", opacity: true }}
+            background={{ color: "accent-3" }}
             justify="start"
             margin={{
               top: "xsmall",

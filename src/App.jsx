@@ -40,7 +40,7 @@ export const App = props => (
           console.log(size);
           props.updateDeviceSize(size);
           return (
-            <Box fill background={{ color: "accent-3", opacity: "medium" }}>
+            <Box fill background={{ color: "accent-3", opacity: true }}>
               <Box flex direction="row" gap={"small"}>
                 {
                   <Box

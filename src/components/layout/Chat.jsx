@@ -39,7 +39,6 @@ class Chat extends React.Component {
     return (
       <Collapsible direction="horizontal" open={this.props.showBar}>
         <Box
-          background={this.props.parentBackground}
           flex
           width={"medium"}
           height="large"
@@ -47,7 +46,7 @@ class Chat extends React.Component {
           justify="center"
         >
           <Box
-            background={{ color: "accent-3", opacity: "medium" }}
+            background={{ color: "accent-3", opacity: true }}
             justify="start"
             margin={{
               top: "xsmall",

@@ -42,12 +42,9 @@
 }
 
 
-.float{
+.float-bottom-right{
   position:fixed;
   bottom:20px;
   right:20px;
 }
 
-.my-float{
-  margin-top:22px;
-}

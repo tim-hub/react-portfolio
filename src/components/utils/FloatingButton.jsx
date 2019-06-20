@@ -8,7 +8,7 @@ const FloatingButton = props =>
     <Button
       icon={<Chat />}
       primary
-      className={"float"}
+      className={"float-bottom-right"}
       onClick={() => {
         props.showSidebar();
       }}

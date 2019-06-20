@@ -9,7 +9,7 @@ import {
   Text,
   Clock
 } from "grommet";
-import { Next, Close } from "grommet-icons";
+import { Next, Return } from "grommet-icons";
 
 import { ask, answer, answering, setToTyping } from "../../redux/actions/chat";
 import { hideSidebar } from "../../redux/actions/index";
@@ -74,12 +74,12 @@ class Chat extends React.Component {
               fill="horizontal"
             >
               <Button
-                icon={<Close size={"small"} />}
+                icon={<Next size={"small"} />}
                 type={"button"}
                 onClick={() => {
                   this.props.hideSidebar();
                 }}
-                reverse={false}
+                margin={{ left: "small" }}
               />
 
               <Text size="xsmall">
@@ -139,7 +139,7 @@ class Chat extends React.Component {
 
               <Button
                 disabled={this.props.status === 1}
-                icon={<Next size={"small"} />}
+                icon={<Return size={"small"} />}
                 primary
                 type={"button"}
                 margin={{ left: "small" }}

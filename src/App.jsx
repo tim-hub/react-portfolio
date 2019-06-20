@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Box, Grommet, ResponsiveContext, Button, Text } from "grommet";
-import { Attraction } from "grommet-icons";
 
 import "./App.css";
 
 import Chat from "./components/layout/Chat";
 import FloatingButton from "./components/utils/FloatingButton";
 import { updateDeviceSize } from "./redux/actions/index";
-
+import Home from "./components/Home";
+import Routers from "./components/utils/Routers";
 const theme = {
   global: {
     colors: {
@@ -20,6 +20,9 @@ const theme = {
       family: "Roboto",
       size: "14px",
       height: "20px"
+    },
+    size: {
+      medium: "414px" // for iphone 6/7/8 plus
     }
   }
 };
@@ -42,74 +45,8 @@ export const App = props => (
           return (
             <Box fill background={{ color: "accent-3", opacity: true }}>
               <Box flex direction="row">
-                {
-                  <Box
-                    flex
-                    align="center"
-                    justify="center"
-                    gap={"small"}
-                    direction={"column"}
-                  >
-                    <Box
-                      direction="row-responsive"
-                      justify="center"
-                      align="center"
-                      gap={size}
-                    >
-                      <Box
-                        pad={size}
-                        align="center"
-                        background={{ color: "light-2", opacity: "strong" }}
-                        round
-                        gap="small"
-                      >
-                        <Attraction size={size} />
-                        <Text>Party</Text>
-                        <Button size={size} label="Button" onClick={() => {}} />
-                      </Box>
-                      <Box
-                        pad={size}
-                        align="center"
-                        background={{ color: "light-2", opacity: "strong" }}
-                        round
-                        gap="small"
-                      >
-                        <Attraction size={size} />
-                        <Text>Party</Text>
-                        <Button size={size} label="Button" onClick={() => {}} />
-                      </Box>
-                    </Box>
-                    <Box
-                      direction="row-responsive"
-                      justify="center"
-                      align="center"
-                      gap={size}
-                    >
-                      <Box
-                        pad={size}
-                        align="center"
-                        background={{ color: "light-2", opacity: "strong" }}
-                        round
-                        gap="small"
-                      >
-                        <Attraction size={size} />
-                        <Text>Party</Text>
-                        <Button size={size} label="Button" onClick={() => {}} />
-                      </Box>
-                      <Box
-                        pad={size}
-                        align="center"
-                        background={{ color: "light-2", opacity: "strong" }}
-                        round
-                        gap="small"
-                      >
-                        <Attraction size={size} />
-                        <Text>Party</Text>
-                        <Button size={size} label="Button" onClick={() => {}} />
-                      </Box>
-                    </Box>
-                  </Box>
-                }
+                {/*<Home size={size} />*/}
+                <Routers />
                 <Chat />
                 <FloatingButton />
               </Box>

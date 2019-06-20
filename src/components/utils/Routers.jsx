@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../Home";
 import Ai from "../Ai";
 
-const Routers = props => (
+const Routers = () => (
   <Switch>
     {/* <Redirect exact path="/" to="/" /> */}
     <Route path="/home" component={Home} />

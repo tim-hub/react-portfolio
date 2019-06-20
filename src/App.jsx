@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Box, Grommet, ResponsiveContext, Grid, Text } from "grommet";
+import { Box, Grommet, ResponsiveContext, Text } from "grommet";
 import "./App.css";
 
 import Chat from "./components/layout/Chat";
-import Routers from "./components/utils/Routers";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
@@ -41,7 +40,7 @@ export const App = props => (
             <Box
               fill
               background={{ color: "accent-3", opacity: true }}
-              direction={"row"}
+              direction="row-responsive"
             >
               {/*<AppBarContainer />*/}
               {/*<Grid*/}
@@ -63,14 +62,16 @@ export const App = props => (
                 flex
                 direction={"column"}
                 gap={"small"}
-                width={"small"}
+                width={"xsmall"}
                 align="center"
                 alignContent={"center"}
                 alignSelf={"center"}
+                justify={"center"}
               >
                 <Text>hi</Text>
                 <Text>hi</Text>
                 <Text>hi</Text>
+
                 <Text>hi</Text>
                 <Text>hi</Text>
               </Box>
@@ -83,28 +84,33 @@ export const App = props => (
                 background={{}}
                 height={"auto"}
                 width="medium"
-                justify="center"
+                justify="start"
+                // fill="vertical"
+                // overflow="auto"
               >
                 <Chat
                   background={{ color: "chat-background", opacity: true }}
                 />
               </Box>
 
-              <Box
-                flex
-                direction={"column"}
-                gap={"small"}
-                width={"small"}
-                align="center"
-                alignContent={"center"}
-                alignSelf={"center"}
-              >
-                <Text>hi</Text>
-                <Text>hi</Text>
-                <Text>hi</Text>
-                <Text>hi</Text>
-                <Text>hi</Text>
-              </Box>
+              {/*<Box*/}
+              {/*  flex*/}
+              {/*  fill*/}
+              {/*  background={{ color: "accent-3", opacity: true }}*/}
+              {/*  direction={"column"}*/}
+              {/*  gap={"small"}*/}
+              {/*  width={"xsmall"}*/}
+              {/*  align="center"*/}
+              {/*  alignContent={"center"}*/}
+              {/*  alignSelf={"center"}*/}
+              {/*  justify={"center"}*/}
+              {/*>*/}
+              {/*  <Text>hi</Text>*/}
+              {/*  <Text>hi</Text>*/}
+              {/*  <Text>hi</Text>*/}
+              {/*  <Text>hi</Text>*/}
+              {/*  <Text>hi</Text>*/}
+              {/*</Box>*/}
             </Box>
           );
         }}

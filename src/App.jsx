@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Box, Grommet, ResponsiveContext } from "grommet";
+import { Box, Grommet, ResponsiveContext, Button, Text } from "grommet";
+import { Attraction } from "grommet-icons";
+
 import "./App.css";
 
-import SideBar from "./components/layout/SideBar";
+import Chat from "./components/layout/Chat";
+import FloatingButton from "./components/utils/FloatingButton";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
@@ -37,12 +40,78 @@ export const App = props => (
           console.log(size);
           props.updateDeviceSize(size);
           return (
-            <Box fill background={{ color: "accent-3" }}>
-              <Box flex direction="row">
-                <Box flex align="center" justify="center">
-                  Dashboard content goes here, click on the notification icon
-                </Box>
-                <SideBar background={{ color: "accent-3" }} />
+            <Box fill background={{ color: "accent-3", opacity: "medium" }}>
+              <Box flex direction="row" gap={"small"}>
+                {
+                  <Box
+                    flex
+                    align="center"
+                    justify="center"
+                    gap={"small"}
+                    direction={"column"}
+                  >
+                    <Box
+                      direction="row-responsive"
+                      justify="center"
+                      align="center"
+                      gap={size}
+                    >
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                    </Box>
+                    <Box
+                      direction="row-responsive"
+                      justify="center"
+                      align="center"
+                      gap={size}
+                    >
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                    </Box>
+                  </Box>
+                }
+                <Chat />
+                <FloatingButton />
               </Box>
             </Box>
           );

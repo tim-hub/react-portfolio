@@ -1,9 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Box, Button, TextInput, InfiniteScroll, Text } from "grommet";
-import { Next } from "grommet-icons";
+import {
+  Box,
+  Button,
+  Collapsible,
+  TextInput,
+  InfiniteScroll,
+  Text,
+  Clock
+} from "grommet";
+import { Next, Close } from "grommet-icons";
 
 import { ask, answer, answering, setToTyping } from "../../redux/actions/chat";
+import { hideSidebar } from "../../redux/actions/index";
 import { answerInChat } from "../../chattingengine/chat";
 import { nlpBot } from "../../chattingengine/chat";
 import ConversationBox from "./ConversationBox";
@@ -28,97 +37,125 @@ class Chat extends React.Component {
       });
     };
     return (
-      <Box
-        background={this.props.background}
-        justify="start"
-        margin={{
-          top: "xsmall",
-          // bottom: "medium",
-          left: "large",
-          right: "large"
-        }}
-        align="start"
-        alignContent="start"
-        alignSelf="center"
-        fill="horizontal"
-        height="750px"
-        gap="small"
-        round
-        elevation="medium"
-      >
+      <Collapsible direction="horizontal" open={this.props.showBar}>
         <Box
-          direction="row"
+          background={this.props.parentBackground}
+          flex
+          width={"medium"}
+          height="large"
           align="center"
-          alignContent="center"
           justify="center"
-          background="light-1"
-          pad={{ left: "medium", right: "left", vertical: "small" }}
-          elevation="medium"
-          round={{ size: "medium", corner: "top" }}
-          fill="horizontal"
         >
-          <Text size="xsmall">{this.props.statuses[this.props.status]}</Text>
-        </Box>
-
-        <Box fill overflow="auto">
-          <InfiniteScroll items={this.props.questions}>
-            {(item, index) => <ConversationBox item={item} key={index} />}
-          </InfiniteScroll>
-        </Box>
-
-        <Box
-          direction="row"
-          align="end"
-          alignContent="start"
-          background="light-2"
-          pad={{
-            left:
-              this.props.size === "small" || this.props.size === "xsmall"
-                ? "medium"
-                : "small",
-            right:
-              this.props.size === "small" || this.props.size === "xsmall"
-                ? "medium"
-                : "small",
-            top:
-              this.props.size === "small" || this.props.size === "xsmall"
-                ? "medium"
-                : "small",
-            bottom: "xsmall"
-          }}
-          elevation="medium"
-          round={{ size: "medium", corner: "bottom" }}
-          fill="horizontal"
-        >
-          <TextInput
-            primary
-            value={this.state.question}
-            onChange={event => {
-              this.setState({ question: event.target.value });
-              this.props.typing();
+          <Box
+            background={{ color: "accent-3", opacity: "medium" }}
+            justify="start"
+            margin={{
+              top: "xsmall",
+              // bottom: "medium",
+              left: "large",
+              right: "large"
             }}
-            onKeyDown={event => {
-              if (event.key === "Enter" && this.props.status !== 1) {
-                askAQuestion(this.state.question);
-              }
-            }}
-          />
-
-          <Button
-            disabled={this.props.status === 1}
-            icon={<Next size={"small"} />}
-            primary
-            type={"button"}
-            margin={{ left: "small" }}
-            onClick={() => {
-              askAQuestion(this.state.question);
-            }}
-            reverse={false}
+            align="start"
+            alignContent="start"
+            alignSelf="center"
+            fill="horizontal"
+            height="large"
+            gap="small"
+            round
+            elevation="medium"
           >
-            ""
-          </Button>
+            <Box
+              direction="row"
+              align="center"
+              alignContent="start"
+              background="light-2"
+              justify="between"
+              elevation="small"
+              round={{ size: "medium", corner: "top" }}
+              fill="horizontal"
+            >
+              <Button
+                icon={<Close size={"small"} />}
+                type={"button"}
+                onClick={() => {
+                  this.props.hideSidebar();
+                }}
+                reverse={false}
+              >
+                ""
+              </Button>
+              <Text size="xsmall">
+                {this.props.statuses[this.props.status]}
+              </Text>
+              <Clock
+                type="digital"
+                precision={"minutes"}
+                size={"small"}
+                margin={"small"}
+              />
+            </Box>
+
+            <Box fill overflow="auto">
+              <InfiniteScroll items={this.props.questions}>
+                {(item, index) => <ConversationBox item={item} key={index} />}
+              </InfiniteScroll>
+            </Box>
+
+            <Box
+              direction="row"
+              align="end"
+              alignContent="start"
+              background="light-2"
+              pad={{
+                left:
+                  this.props.size === "small" || this.props.size === "xsmall"
+                    ? "medium"
+                    : "small",
+                right:
+                  this.props.size === "small" || this.props.size === "xsmall"
+                    ? "medium"
+                    : "small",
+                top:
+                  this.props.size === "small" || this.props.size === "xsmall"
+                    ? "medium"
+                    : "small",
+                bottom: "xsmall"
+              }}
+              elevation="medium"
+              round={{ size: "medium", corner: "bottom" }}
+              fill="horizontal"
+            >
+              <TextInput
+                primary
+                value={this.state.question}
+                onChange={event => {
+                  this.setState({ question: event.target.value });
+                  this.props.typing();
+                }}
+                onKeyDown={event => {
+                  if (event.key === "Enter" && this.props.status !== 1) {
+                    askAQuestion(this.state.question);
+                  }
+                }}
+              />
+
+              <Button
+                disabled={this.props.status === 1}
+                icon={<Next size={"small"} />}
+                primary
+                type={"button"}
+                margin={{ left: "small" }}
+                onClick={() => {
+                  askAQuestion(this.state.question);
+                }}
+                reverse={false}
+              >
+                ""
+              </Button>
+            </Box>
+          </Box>
         </Box>
-      </Box>
+      </Collapsible>
     );
   }
 }
@@ -130,7 +167,8 @@ const mapStatusToProps = (status, ownProps) => {
     questions: status.chat.questions,
     remote: status.chat.remote,
     size: status.root.size,
-    background: ownProps.background
+    parentBackground: ownProps.parentBackground,
+    showBar: status.root.showBar
   };
 };
 
@@ -147,6 +185,9 @@ const mapDispatchToProps = dispatch => {
     },
     typing: () => {
       dispatch(setToTyping());
+    },
+    hideSidebar: () => {
+      dispatch(hideSidebar());
     }
   };
 };

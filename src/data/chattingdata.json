@@ -1,7 +1,7 @@
 {
   "init": {
     "chat": {
-      "statuses": ["Chatting with Ai", "Ai is thinking", "Typing"],
+      "statuses": ["Chatting with Ai (Tim's bot)", "Ai is thinking", "Typing"],
       "status": 0,
       "questions": [
         {

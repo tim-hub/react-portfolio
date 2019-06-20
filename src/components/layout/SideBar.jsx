@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Box, Collapsible, Button, Layer } from "grommet";
-import { FormClose } from "grommet-icons";
+import { Box, Collapsible } from "grommet";
+
 import Chat from "./Chat";
 import { HIDE_SIDEBAR } from "../../redux/constants/action-types";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     showSidebar: state.root.showBar,
-    size: state.root.size
+    size: state.root.size,
+    background: ownProps.background
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -21,42 +22,17 @@ const mapDispatchToProps = dispatch => {
  * @param {*} props - props from parent component. {size, showSideBar}
  */
 const SideBar = props => {
-  const renderContent = () => {
-    return <Chat />;
-  };
-
-  const getCloseButton = clickingFun => (
-    <Box
-      background="light-2"
-      tag="header"
-      justify="end"
-      align="center"
-      direction="row"
-    >
-      <Button icon={<FormClose />} onClick={clickingFun} />
-    </Box>
-  );
-
   return (
     <Collapsible direction="horizontal" open={props.showSidebar}>
-      {props.showSidebar &&
-      (props.size === "small" || props.size === "xsmall") ? (
-        <Layer flex>
-          {getCloseButton(props.onClick)}
-          {renderContent()}
-        </Layer>
-      ) : (
-        <Box
-          background={"white"}
-          flex
-          width="medium"
-          elevation="small"
-          align="center"
-          justify="start"
-        >
-          {renderContent()}
-        </Box>
-      )}
+      <Box
+        background={props.background}
+        flex
+        width="medium"
+        align="center"
+        justify="center"
+      >
+        <Chat background={{ color: "chat-background", opacity: true }} />
+      </Box>
     </Collapsible>
   );
 };

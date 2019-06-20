@@ -81,9 +81,8 @@ class Chat extends React.Component {
                   this.props.hideSidebar();
                 }}
                 reverse={false}
-              >
-                ""
-              </Button>
+              />
+
               <Text size="xsmall">
                 {this.props.statuses[this.props.status]}
               </Text>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Text } from "grommet";
-import LoadingComponent from "./utils/Loading";
+import LoadingComponent from "../utils/Loading";
 
 const ConversationBox = props => {
   const fromBot = props.item.from === 0;
@@ -14,7 +14,8 @@ const ConversationBox = props => {
         alignContent={fromBot ? "start" : "end"}
         alignSelf={fromBot ? "start" : "end"}
         animation={fromBot ? "fadeIn" : "slideLeft"}
-        background={`dark-${props.item.from + 1}`}
+        background={fromBot ? { color: "dark-1" } : { color: "light-3" }}
+        elevation="small"
         flex={false}
         justify={fromBot ? "start" : "end"}
         margin={{

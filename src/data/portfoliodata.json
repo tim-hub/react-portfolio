@@ -1,0 +1,335 @@
+{
+  "name": "Tim",
+  "title": ["Software Developer", "Data Scientist", "Game Developer"],
+  "location": {
+    "country": "New Zealand",
+    "city": "Auckland",
+    "postcode": ""
+  },
+  "avatar": "https://i.stack.imgur.com/HU6sl.jpg?s=328&g=1",
+  "badges": [
+    {
+      "name": "AWS",
+      "img": ""
+    },
+    {
+      "name": "ICP"
+    }
+  ],
+  "contact": {
+    "blog": "https://tim.bai.uno",
+    "linkedin": "https://www.linkedin.com/in/twtwtw",
+    "github": "https://www.github.com/tim-hub",
+    "stackoverflow": "https://stackoverflow.com/users/5249708/tim",
+    "medium": "https://medium.com/@tim_med",
+    "email": "",
+    "phone": ""
+  },
+  "mission_statement": "Offering passion and intelligence to solve real world problems. \nBalance and enjoy work and life to bring the positive and happiness to friends, colleagues and communities.",
+  "intro": "More than 3 years commercial software development experience in multiple industries in both New Zealand and overseas.\n\nProficient in Python, Vue.js, React.js, Web Full Stack and Unity3d development.\n\nKeen to new technology, with practice experience in Machine Learning(Python), Blockchain (Hyperledger and Ethereum) and Data Warehouse.\n\nWith more than 5 years experience of using Linux and Cloud and programming and more than 6 yeas programming experience in Python and Javascript. ",
+  "hobbies": ["jogging", "frisbee ultimate", "hiking", "table tennis"],
+  "skills": {
+    "programming_languages": [
+      "Javascript",
+      "Python",
+      "C#",
+      "Shell",
+      "Markdown",
+      "C",
+      "SQL"
+    ],
+    "methodologies": ["Agile Development", "Test Driven Development"],
+    "databases": ["MongoDB", "PostgresSQL", "SQLite"],
+    "testing": ["Mocha", "Chai", "Selenium", "Cucumber", "Unit Testing"],
+    "frameworks": ["Django", "Flask", "React", "Vue", "ASP.NET Core"],
+    "data_sciense": ["Keras", "Pandas"],
+    "cloud": ["AWS", "Heroku", "IBM Cloud", "Openshift"],
+    "devops": ["CircleCI", "Gitlab Pipeline", "Docker"]
+  },
+  "ides": [
+    {
+      "name": "PyCharm",
+      "used_for": ["Web", "Python", "Django", "Javascript", "VueJS"]
+    },
+    {
+      "name": "WebStorm",
+      "used_for": ["Web", "Javascript", "ReactJS", "NodeJS"]
+    },
+    {
+      "name": "VS Code",
+      "used_for": ["Javascript", "HTML", "CSS", "SASS", "Extension"]
+    },
+    {
+      "name": "Vim",
+      "used_for": ["Shell", "Markdown"]
+    }
+  ],
+  "tools": [
+    "git",
+    "Trello",
+    "Jira",
+    "Heroku",
+    "AWS",
+    "Unity3D",
+    "IPFS",
+    "Blockchain",
+    "RESTful",
+    "JSON",
+    "Vuforia",
+    "Tensorflow",
+    "Keras",
+    "Docker"
+  ],
+  "studied_in": [
+    {
+      "name": "China University of Mining and technology",
+      "degree": "Bachelor of Engineering",
+      "website": "http://eng.cumt.edu.cn/",
+      "start": 2010,
+      "end": 2014
+    },
+    {
+      "name": "Unitec institute of Technology",
+      "degree": "Graduate Diploma of Computing",
+      "website": "https://www.unitec.ac.nz/",
+      "start": 2018,
+      "end": 2019
+    }
+  ],
+  "certified_as": [
+    {
+      "name": "AWS Certified Solution Architect – Associate",
+      "org": "AWS",
+      "start": 2019,
+      "end": 2021,
+      "at": "Trust Codes"
+    },
+    {
+      "name": "ICP (ICAgile Certified Professional)",
+      "org": "ICP",
+      "start": 2019,
+      "end": 0,
+      "at": "Unitec Institute of Technology"
+    },
+    {
+      "name": "Unity Certified Developer by Unity Technologies",
+      "org": "Unity",
+      "start": 2016,
+      "end": 2018,
+      "at": "Funire"
+    }
+  ],
+  "online_certs": [
+    {
+      "name": "Javascript and SQL (Top 10%)",
+      "org": "TestDome"
+    },
+    {
+      "name": "Django Test (Top 10%) ",
+      "org": "Upwork"
+    },
+    {
+      "name": "IBM Blockchain Foundation for Developer",
+      "org": "IBM"
+    },
+    {
+      "name": "Responsive Web Design Fundamentals",
+      "org": "Google"
+    },
+    {
+      "name": "Full Stack Foundations",
+      "org": "Amazon"
+    },
+    {
+      "name": "Game Design and Development Specialization",
+      "org": "Michigan State University"
+    },
+    {
+      "name": "M101P: MongoDB for Developers ",
+      "org": "MongoDB University"
+    },
+    {
+      "name": "What is Data Science?",
+      "org": "IBM"
+    }
+  ],
+  "experiences": [
+    {
+      "org": "Trust Codes",
+      "title": "Software Developer",
+      "start": 2019,
+      "end": 2019,
+      "location": "Auckland, New Zealand",
+      "responsibilities": [],
+      "achievements": []
+    },
+    {
+      "org": "Hazara Lining",
+      "title": "Software Developer Part-time",
+      "start": 2018,
+      "end": 2018,
+      "location": "Auckland, New Zealand",
+      "responsibilities": [],
+      "achievements": []
+    },
+    {
+      "org": "B-Provenance",
+      "title": "Smart Contract Developer Part-time",
+      "start": 2018,
+      "end": 2018,
+      "location": "Auckland, New Zealand",
+      "responsibilities": [],
+      "achievements": []
+    },
+    {
+      "org": "Funire",
+      "title": "Software Developer",
+      "start": 2015,
+      "end": 2016,
+      "location": "Shanghai China",
+      "responsibilities": [],
+      "achievements": []
+    },
+    {
+      "org": "DFMC",
+      "title": "Developer",
+      "start": 2014,
+      "end": 2015,
+      "location": "China",
+      "responsibilities": [],
+      "achievements": []
+    }
+  ],
+  "projects": [
+    {
+      "name": "Trust Codes Platform",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Trust Codes"
+    },
+    {
+      "name": "Hazara Lining",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Hazara Lining"
+    },
+    {
+      "name": "Blockchain Solution Logistics Demo",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "B-Provenance"
+    },
+    {
+      "name": "ARFootBall",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Funire"
+    },
+    {
+      "name": "AR Tetris",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Funire"
+    },
+    {
+      "name": "Saving List",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Side Project"
+    },
+    {
+      "name": "SMS gateway",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Side Project"
+    },
+    {
+      "name": "React Portfolio",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Side Project"
+    },
+    {
+      "name": "Ace Ielts",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Side Project"
+    },
+    {
+      "name": "Django-BaaS",
+      "intro": "",
+      "website": "",
+      "src": "",
+      "demo": "",
+      "picture": "",
+      "at": "Side Project"
+    }
+  ],
+  "hackathon": [
+    {
+      "name": "Mode Alt Shift Hackathon",
+      "year": 2019,
+      "at": "Trust Codes",
+      "picture": ""
+    },
+    {
+      "name": "NPO Hackathon 2019",
+      "year": 2019,
+      "picture": ""
+    },
+    {
+      "name": "Robert Walters Hackathon",
+      "year": 2018,
+      "at": "Unitec Institute of Technology",
+      "picture": ""
+    },
+    {
+      "name": "Kiwi Jam 2018",
+      "year": 2018,
+      "at": "Unitec Institute of Technology",
+      "picture": ""
+    },
+    {
+      "name": "Global Game Jam 2017",
+      "year": 2017,
+      "picture": ""
+    }
+  ],
+  "orgs": [
+    {
+      "name": "AWS",
+      "website": ""
+    },
+    {
+      "name": "Trust Codes",
+      "website": ""
+    }
+  ]
+}

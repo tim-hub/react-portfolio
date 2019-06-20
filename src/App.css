@@ -23,6 +23,15 @@
   color: #61dafb;
 }
 
+.App-tab {
+  text-decoration: none;
+}
+
+.App-tab-active {
+  color: #61dafb;
+  text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -30,4 +39,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+}
+
+.my-float{
+  margin-top:22px;
 }

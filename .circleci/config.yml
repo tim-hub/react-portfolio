@@ -21,15 +21,15 @@ jobs: # a collection of steps
       - run: # run tests
           name: test
           command: yarn test
-      - add_ssh_keys:
-          fingerprints:
-            - "21:f2:20:61:51:d7:03:28:86:59:68:fe:63:72:29:83"
-      - run:
-          name: Set Git
-          command: |
-            git config --global user.email $EMAIL
-            git config --global user.name $GITNAME
-      - run:
-          name: Deploy to Github Page
-          command: |
-            yarn deploy
+#      - add_ssh_keys:
+#          fingerprints:
+#            - "21:f2:20:61:51:d7:03:28:86:59:68:fe:63:72:29:83"
+#      - run:
+#          name: Set Git
+#          command: |
+#            git config --global user.email $EMAIL
+#            git config --global user.name $GITNAME
+#      - run:
+#          name: Deploy to Github Page
+#          command: |
+#            yarn deploy

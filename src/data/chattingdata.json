@@ -1,0 +1,50 @@
+{
+  "init": {
+    "chat": {
+      "statuses": ["Chatting with Ai (Tim's bot)", "Ai is thinking", "Typing"],
+      "status": 0,
+      "questions": [
+        {
+          "index": 0,
+          "from": 0,
+          "content": "hi there."
+        }
+      ],
+      "answers": [],
+      "remote": false
+    }
+  },
+  "greetings": [
+    { "content": "hi there ," },
+    { "content": "hi," },
+    {
+      "contet": "what is your name,"
+    },
+    {
+      "references": {
+        "work": "/"
+      },
+      "content": "I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him,I am a bot built by Tim, for introducing him, <a href=/> a</a>"
+    }
+  ],
+  "about_bot": [
+    {
+      "content": "I am a bot designed to introduce Tim to you. You can chat with me by typing or you can go through to know about him."
+    },
+    {
+      "content": "By the way, I am not so smart to chat with human, but I'll do my best."
+    }
+  ],
+  "others": [
+    [
+      {
+        "index": 4,
+        "from": 0,
+        "references": {
+          "work": "/"
+        },
+        "content": "..."
+      }
+    ]
+  ]
+}

@@ -1,17 +1,20 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Box, Grommet, ResponsiveContext } from "grommet";
+import { Box, Grommet, ResponsiveContext, Button, Text } from "grommet";
+import { Attraction } from "grommet-icons";
+
 import "./App.css";
-import AppBarContainer from "./components/AppBar";
-import SideBar from "./components/SideBar";
-import Home from "./components/Home";
+
+import Chat from "./components/layout/Chat";
+import FloatingButton from "./components/utils/FloatingButton";
 import { updateDeviceSize } from "./redux/actions/index";
 
 const theme = {
   global: {
     colors: {
-      brand: "#228BE6"
+      brand: "#228BE6",
+      "chat-background": "#EBFAF7"
     },
     font: {
       family: "Roboto",
@@ -34,18 +37,81 @@ export const App = props => (
     <Grommet theme={theme} full>
       <ResponsiveContext.Consumer>
         {size => {
+          console.log(size);
           props.updateDeviceSize(size);
           return (
-            <Box fill>
-              <AppBarContainer />
-              <Box direction="row" flex overflow={{ horizontal: "hidden" }}>
-                <Box flex align="center" justify="center">
-                  <Switch>
-                    {/* <Redirect exact path="/" to="/" /> */}
-                    <Route path="/" component={Home} />
-                  </Switch>
-                </Box>
-                <SideBar />
+            <Box fill background={{ color: "accent-3", opacity: true }}>
+              <Box flex direction="row">
+                {
+                  <Box
+                    flex
+                    align="center"
+                    justify="center"
+                    gap={"small"}
+                    direction={"column"}
+                  >
+                    <Box
+                      direction="row-responsive"
+                      justify="center"
+                      align="center"
+                      gap={size}
+                    >
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                    </Box>
+                    <Box
+                      direction="row-responsive"
+                      justify="center"
+                      align="center"
+                      gap={size}
+                    >
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                      <Box
+                        pad={size}
+                        align="center"
+                        background={{ color: "light-2", opacity: "strong" }}
+                        round
+                        gap="small"
+                      >
+                        <Attraction size={size} />
+                        <Text>Party</Text>
+                        <Button size={size} label="Button" onClick={() => {}} />
+                      </Box>
+                    </Box>
+                  </Box>
+                }
+                <Chat />
+                <FloatingButton />
               </Box>
             </Box>
           );

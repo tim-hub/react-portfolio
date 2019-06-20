@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   showBar: true,
-  title: "Portfolio",
+  title: "Tim's Portfolio",
   size: "medium"
 };
 

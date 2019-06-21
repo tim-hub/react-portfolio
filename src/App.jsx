@@ -9,6 +9,7 @@ import Chat from "./components/layout/Chat";
 import FloatingButton from "./components/utils/FloatingButton";
 import { updateDeviceSize } from "./redux/actions/index";
 import Home from "./components/Home";
+import BottomBar from "./components/layout/BottomBar";
 import Routers from "./components/utils/Routers";
 const theme = {
   global: {
@@ -46,9 +47,28 @@ export const App = props => (
             <Box fill background={{ color: "accent-3", opacity: true }}>
               <Box flex direction="row">
                 {/*<Home size={size} />*/}
-                <Routers />
+                <Box
+                  flex
+                  align="center"
+                  justify="center"
+                  gap={"small"}
+                  direction={"column"}
+                  margin={{
+                    horizontal: !(
+                      size === "small" ||
+                      size === "xsmall" ||
+                      size === "xxsmall"
+                    )
+                      ? size
+                      : null
+                  }}
+                >
+                  <Routers />
+                  <BottomBar />
+                </Box>
+
                 <Chat />
-                <FloatingButton />
+                {/*<FloatingButton />*/}
               </Box>
             </Box>
           );

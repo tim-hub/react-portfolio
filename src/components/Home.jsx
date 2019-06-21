@@ -1,12 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Box, Button, Text, Markdown } from "grommet";
-import { Launch, Achievement, ContactInfo, Services } from "grommet-icons";
+import {
+  Box,
+  Button,
+  Text,
+  Markdown,
+  TextInput,
+  InfiniteScroll
+} from "grommet";
+import {
+  Launch,
+  Achievement,
+  ContactInfo,
+  Services,
+  Return,
+  Home as HomeIcon
+} from "grommet-icons";
+import ConversationBox from "./layout/ConversationBox";
+import BottomBar from "./layout/BottomBar";
 
 const MenuBox = props => (
   <Box
     align="center"
     background={props.background}
+    elevation={"small"}
     pad={"large"}
     width={props.size}
     round
@@ -30,8 +47,17 @@ const Home = props => {
       justify="center"
       gap={"small"}
       direction={"column"}
-      margin={props.size}
+      margin={{
+        horizontal: !(
+          props.size === "small" ||
+          props.size === "xsmall" ||
+          props.size === "xxsmall"
+        )
+          ? props.size
+          : null
+      }}
     >
+      <Box flex></Box>
       <Box
         direction="row-responsive"
         justify="center"
@@ -76,6 +102,7 @@ const Home = props => {
           size={size}
         />
       </Box>
+      <Box flex></Box>
     </Box>
   );
 };

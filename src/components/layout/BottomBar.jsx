@@ -1,10 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect, NavLink, withRouter } from "react-router-dom";
+import { chatData } from "../../data/data";
 import { Box, Button, Text } from "grommet";
 import { Home, Chat, Next } from "grommet-icons";
 import { showSidebar, hideSidebar } from "../../redux/actions";
 
-const BottomBar = props => {
+const getRandomTip = () => {
+  return chatData["tips"][Math.floor(Math.random() * chatData["tips"].length)];
+};
+
+// const updateTip = () => {
+//   setTimeout(updateTip, 1000);
+//   return getRandomTip();
+// };
+
+const BottomBar = (props, context) => {
   const sizeIsSmall =
     props.size === "small" ||
     props.size === "xsmall" ||
@@ -27,12 +38,12 @@ const BottomBar = props => {
         primary
         type={"button"}
         margin={{ left: "small" }}
-        onClick={() => {}}
+        onClick={() => {
+          props.history.push("/");
+        }}
       />
-      {!sizeIsSmall && props.showBar ? (
-        <Text flex>
-          fjhkjkhfhjk sfdjkhfdshkjsfd fsdjkhdfshjkhjkdf sfdjksfdkhj
-        </Text>
+      {!(sizeIsSmall && props.showBar) ? (
+        <Text flex>{getRandomTip()}</Text>
       ) : null}
 
       {props.showBar ? (
@@ -62,10 +73,11 @@ const BottomBar = props => {
   );
 };
 
-const mapStatusToProps = status => {
+const mapStatusToProps = (status, ownProps) => {
   return {
     showBar: status.root.showBar,
-    size: status.root.size
+    size: status.root.size,
+    history: ownProps.history
   };
 };
 
@@ -80,7 +92,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStatusToProps,
-  mapDispatchToProps
-)(BottomBar);
+export default withRouter(
+  connect(
+    mapStatusToProps,
+    mapDispatchToProps
+  )(BottomBar)
+);

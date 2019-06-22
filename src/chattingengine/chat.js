@@ -1,6 +1,6 @@
 import { getRandomLoading } from "../utils/random";
+import { chatData as data } from "../data/data";
 const { NlpManager } = require("node-nlp");
-const data = require("../data/chattingdata.json");
 const manager = new NlpManager({ languages: ["en"] });
 
 const init = async () => {

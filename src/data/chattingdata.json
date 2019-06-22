@@ -14,6 +14,10 @@
       "remote": false
     }
   },
+  "tips": [
+    "Whenever clinking the Chat button (at right), you can open the Chat bar.",
+    "Ai is the bot's name, a bot built by Tim. Try to talk with him."
+  ],
   "greetings": [
     { "content": "hi there ," },
     { "content": "hi," },

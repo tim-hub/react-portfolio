@@ -64,7 +64,7 @@ export const App = props => (
                   }}
                 >
                   <Routers />
-                  <BottomBar />
+                  <BottomBar history={props.history} />
                 </Box>
 
                 <Chat />

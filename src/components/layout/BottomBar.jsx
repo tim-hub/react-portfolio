@@ -4,54 +4,68 @@ import { Box, Button, Text } from "grommet";
 import { Home, Chat, Next } from "grommet-icons";
 import { showSidebar, hideSidebar } from "../../redux/actions";
 
-const BottomBar = props => (
-  <Box
-    direction="row"
-    align="center"
-    alignContent="start"
-    background="dark-2"
-    elevation="medium"
-    round={{ size: "medium", corner: "top" }}
-    margin={{ left: "small", right: "small" }}
-    fill="horizontal"
-    justify={"between"}
-    gap={"small"}
-  >
-    <Button
-      icon={<Home size={"medium"} />}
-      primary
-      type={"button"}
-      margin={{ left: "small" }}
-      onClick={() => {}}
-    />
-    <Text flex>fjhkjkhfhjk sfdjkhfdshkjsfd fsdjkhdfshjkhjkdf sfdjksfdkhj</Text>
-    {props.showBar ? (
+const BottomBar = props => {
+  const sizeIsSmall =
+    props.size === "small" ||
+    props.size === "xsmall" ||
+    props.size === "xxsmall";
+  return (
+    <Box
+      direction="row"
+      align="center"
+      alignContent="start"
+      background="dark-2"
+      elevation="medium"
+      round={{ size: "medium", corner: "top" }}
+      margin={{ left: "small", right: "small" }}
+      fill="horizontal"
+      justify={"between"}
+      gap={"small"}
+    >
       <Button
-        icon={<Next size={"medium"} />}
+        icon={<Home size={"medium"} />}
         primary
         type={"button"}
-        margin={{ right: "small" }}
-        onClick={() => {
-          props.hideSidebar();
-        }}
+        margin={{ left: "small" }}
+        onClick={() => {}}
       />
-    ) : (
-      <Button
-        icon={<Chat size={"medium"} />}
-        primary
-        type={"button"}
-        margin={{ right: "small" }}
-        onClick={() => {
-          props.showSidebar();
-        }}
-      />
-    )}
-  </Box>
-);
+      {!sizeIsSmall && props.showBar ? (
+        <Text flex>
+          fjhkjkhfhjk sfdjkhfdshkjsfd fsdjkhdfshjkhjkdf sfdjksfdkhj
+        </Text>
+      ) : null}
+
+      {props.showBar ? (
+        !sizeIsSmall ? (
+          <Button
+            icon={<Next size={"medium"} />}
+            primary
+            type={"button"}
+            margin={{ right: "small" }}
+            onClick={() => {
+              props.hideSidebar();
+            }}
+          />
+        ) : null
+      ) : (
+        <Button
+          icon={<Chat size={"medium"} />}
+          primary
+          type={"button"}
+          margin={{ right: "small" }}
+          onClick={() => {
+            props.showSidebar();
+          }}
+        />
+      )}
+    </Box>
+  );
+};
 
 const mapStatusToProps = status => {
   return {
-    showBar: status.root.showBar
+    showBar: status.root.showBar,
+    size: status.root.size
   };
 };
 
